@@ -1,0 +1,52 @@
+16:12:05 **** Build of configuration Debug for project Collision_Avoidance ****
+make all 
+Building file: ../MCAL/TIMER0/TIM0.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/TIMER0/TIM0.d" -MT"MCAL/TIMER0/TIM0.o" -c -o "MCAL/TIMER0/TIM0.o" "../MCAL/TIMER0/TIM0.c"
+../MCAL/TIMER0/TIM0.c:185:1: warning: multi-line comment
+Finished building: ../MCAL/TIMER0/TIM0.c
+ 
+Building file: ../MCAL/INT/INT.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/INT/INT.d" -MT"MCAL/INT/INT.o" -c -o "MCAL/INT/INT.o" "../MCAL/INT/INT.c"
+Finished building: ../MCAL/INT/INT.c
+ 
+Building file: ../MCAL/ICU/ICU.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/ICU/ICU.d" -MT"MCAL/ICU/ICU.o" -c -o "MCAL/ICU/ICU.o" "../MCAL/ICU/ICU.c"
+Finished building: ../MCAL/ICU/ICU.c
+ 
+Building file: ../MCAL/DIO/DIO.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/DIO/DIO.d" -MT"MCAL/DIO/DIO.o" -c -o "MCAL/DIO/DIO.o" "../MCAL/DIO/DIO.c"
+../MCAL/DIO/DIO.c: In function 'DIO_u8GetPinValue':
+../MCAL/DIO/DIO.c:92: warning: control reaches end of non-void function
+Finished building: ../MCAL/DIO/DIO.c
+ 
+Building file: ../MCAL/ADC/ADC.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/ADC/ADC.d" -MT"MCAL/ADC/ADC.o" -c -o "MCAL/ADC/ADC.o" "../MCAL/ADC/ADC.c"
+Finished building: ../MCAL/ADC/ADC.c
+ 
+Building file: ../HAL/LCD/LCD.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"HAL/LCD/LCD.d" -MT"HAL/LCD/LCD.o" -c -o "HAL/LCD/LCD.o" "../HAL/LCD/LCD.c"
+In file included from ../HAL/LCD/LCD.c:2:
+d:/iti_es_basics/softwares/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../HAL/LCD/LCD.c
+ 
+Building file: ../HAL/DCMotor/DCMotor.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"HAL/DCMotor/DCMotor.d" -MT"HAL/DCMotor/DCMotor.o" -c -o "HAL/DCMotor/DCMotor.o" "../HAL/DCMotor/DCMotor.c"
+Finished building: ../HAL/DCMotor/DCMotor.c
+ 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: Collision_Avoidance.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Collision_Avoidance.map -mmcu=atmega16 -o "Collision_Avoidance.elf"  ./MCAL/TIMER0/TIM0.o  ./MCAL/INT/INT.o  ./MCAL/ICU/ICU.o  ./MCAL/DIO/DIO.o  ./MCAL/ADC/ADC.o  ./HAL/LCD/LCD.o  ./HAL/DCMotor/DCMotor.o  ./main.o   
+d:/iti_es_basics/softwares/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm16.o:(.init9+0x0): undefined reference to `main'
+make: *** [Collision_Avoidance.elf] Error 1
