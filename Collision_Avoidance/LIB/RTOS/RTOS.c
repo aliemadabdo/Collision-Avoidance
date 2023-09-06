@@ -33,17 +33,33 @@ RTOS_error_t RTOS_create_task(char copy_name[], u8 copy_priority, u8 copy_piriod
     return(TASK_OK);
 }
 
+void RTOS_bubble_sort_task(u8 copy_start_index){
+    RTOS_Task temp_task;
+    for(int index=copy_start_index; index<RTOS_MAX_NUMBER_OF_TASKS; index++){
+        if(RTOS_tasks_array[index].prority > RTOS_tasks_array[copy_start_index].prority){
+            // swap to get the higher priority task at the start of the task array 
+            temp_task = RTOS_tasks_array[copy_start_index];
+            RTOS_tasks_array[copy_start_index] = RTOS_tasks_array[index];
+            RTOS_tasks_array[index] = temp_task;
+        }
+    }
+}
+
 void RTOS_schedule(void){
     for(int index=0; index<RTOS_tasks_array_index; index++){
             if(RTOS_tasks_array[index].wait_countdown <= 0){
                 // task ready to run
                 RTOS_tasks_array[index].wait_countdown = RTOS_tasks_array[index].pirodicity;
+                strcpy(RTOS_running_task, RTOS_tasks_array[index].name);
                 RTOS_tasks_array[index].service_routine_ptr();
             }
             else{
                 // task should wait for upcoming ticks
                 RTOS_tasks_array[index].wait_countdown--;
             }
+
+            // bubble sort the at the current index (highest priority on the left)
+            RTOS_bubble_sort_task(index); 
     }
 }
 

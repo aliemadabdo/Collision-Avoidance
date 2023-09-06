@@ -34,6 +34,7 @@ typedef struct {
 
 RTOS_error_t RTOS_create_task(char copy_name[], u8 copy_priority, u8 copy_piriodicty, void (*copy_service_routine_ptr)(void));
 void RTOS_schedule(void);
+void RTOS_sort_tasks_array(void);
 void RTOS_set_priority(char copy_name[], u8 copy_prioirty);
-void
+// sort RTOS_tasks_array() bassed on priority 
 #endif
