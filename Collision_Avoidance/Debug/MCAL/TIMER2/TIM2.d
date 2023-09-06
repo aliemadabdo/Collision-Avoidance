@@ -1,0 +1,9 @@
+MCAL/TIMER2/TIM2.o MCAL/TIMER2/TIM2.o: ../MCAL/TIMER2/TIM2.c \
+  ../MCAL/TIMER2/../../LIB/BIT_Math.h \
+  ../MCAL/TIMER2/../../LIB/STD_Types.h ../MCAL/TIMER2/TIM2.h
+
+../MCAL/TIMER2/../../LIB/BIT_Math.h:
+
+../MCAL/TIMER2/../../LIB/STD_Types.h:
+
+../MCAL/TIMER2/TIM2.h:

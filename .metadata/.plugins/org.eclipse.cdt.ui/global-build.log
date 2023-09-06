@@ -50,3 +50,324 @@ Invoking: AVR C Linker
 avr-gcc -Wl,-Map,Collision_Avoidance.map -mmcu=atmega16 -o "Collision_Avoidance.elf"  ./MCAL/TIMER0/TIM0.o  ./MCAL/INT/INT.o  ./MCAL/ICU/ICU.o  ./MCAL/DIO/DIO.o  ./MCAL/ADC/ADC.o  ./HAL/LCD/LCD.o  ./HAL/DCMotor/DCMotor.o  ./main.o   
 d:/iti_es_basics/softwares/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm16.o:(.init9+0x0): undefined reference to `main'
 make: *** [Collision_Avoidance.elf] Error 1
+20:30:00 **** Incremental Build of configuration Debug for project Collision_Avoidance ****
+make all 
+Building file: ../MCAL/TIMER2/TIM2.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"MCAL/TIMER2/TIM2.d" -MT"MCAL/TIMER2/TIM2.o" -c -o "MCAL/TIMER2/TIM2.o" "../MCAL/TIMER2/TIM2.c"
+../MCAL/TIMER2/TIM2.c:185:1: warning: multi-line comment
+Finished building: ../MCAL/TIMER2/TIM2.c
+ 
+Building file: ../HAL/DCMotor/DCMotor.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"HAL/DCMotor/DCMotor.d" -MT"HAL/DCMotor/DCMotor.o" -c -o "HAL/DCMotor/DCMotor.o" "../HAL/DCMotor/DCMotor.c"
+Finished building: ../HAL/DCMotor/DCMotor.c
+ 
+Building target: Collision_Avoidance.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Collision_Avoidance.map -mmcu=atmega16 -o "Collision_Avoidance.elf"  ./MCAL/TIMER2/TIM2.o  ./MCAL/TIMER0/TIM0.o  ./MCAL/INT/INT.o  ./MCAL/ICU/ICU.o  ./MCAL/DIO/DIO.o  ./MCAL/ADC/ADC.o  ./HAL/LCD/LCD.o  ./HAL/DCMotor/DCMotor.o  ./main.o   
+d:/iti_es_basics/softwares/01- imt sdk/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm16.o:(.init9+0x0): undefined reference to `main'
+make: *** [Collision_Avoidance.elf] Error 1
+20:42:03 **** Incremental Build of configuration Debug for project Collision_Avoidance ****
+make all 
+Building file: ../HAL/DCMotor/DCMotor.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"HAL/DCMotor/DCMotor.d" -MT"HAL/DCMotor/DCMotor.o" -c -o "HAL/DCMotor/DCMotor.o" "../HAL/DCMotor/DCMotor.c"
+Finished building: ../HAL/DCMotor/DCMotor.c
+ 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:7:
+d:/iti_es_basics/softwares/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../main.c:8:29: error: DCMotor/DCMotor.h: No such file or directory
+../main.c: In function 'main':
+../main.c:15: warning: implicit declaration of function 'DCMotor_voidInit'
+../main.c:18: warning: implicit declaration of function 'DCMotor_voidForward'
+../main.c:18: error: 'MAX_SPEED' undeclared (first use in this function)
+../main.c:18: error: (Each undeclared identifier is reported only once
+../main.c:18: error: for each function it appears in.)
+../main.c:21: error: 'LOW_SPEED' undeclared (first use in this function)
+../main.c:24: warning: implicit declaration of function 'DCMotor_voidRotRight'
+../main.c:33: warning: implicit declaration of function 'DCMotor_voidBackward'
+../main.c:35: warning: implicit declaration of function 'DCMotor_voidStop'
+../main.c:39: error: 'MED_SPEED' undeclared (first use in this function)
+make: *** [main.o] Error 1
+20:42:35 **** Incremental Build of configuration Debug for project Collision_Avoidance ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:7:
+d:/iti_es_basics/softwares/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../main.c:8:29: error: DCMotor/DCMotor.h: No such file or directory
+../main.c: In function 'main':
+../main.c:15: warning: implicit declaration of function 'DCMotor_voidInit'
+../main.c:18: warning: implicit declaration of function 'DCMotor_voidForward'
+../main.c:18: error: 'MAX_SPEED' undeclared (first use in this function)
+../main.c:18: error: (Each undeclared identifier is reported only once
+../main.c:18: error: for each function it appears in.)
+../main.c:21: error: 'LOW_SPEED' undeclared (first use in this function)
+../main.c:24: warning: implicit declaration of function 'DCMotor_voidRotRight'
+../main.c:33: warning: implicit declaration of function 'DCMotor_voidBackward'
+../main.c:35: warning: implicit declaration of function 'DCMotor_voidStop'
+../main.c:39: error: 'MED_SPEED' undeclared (first use in this function)
+make: *** [main.o] Error 1
+20:43:00 **** Incremental Build of configuration Debug for project Collision_Avoidance ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:7:
+d:/iti_es_basics/softwares/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../main.c:8:29: error: DCMotor/DCMotor.h: No such file or directory
+../main.c: In function 'main':
+../main.c:15: warning: implicit declaration of function 'DCMotor_voidInit'
+../main.c:18: warning: implicit declaration of function 'DCMotor_voidForward'
+../main.c:18: error: 'MAX_SPEED' undeclared (first use in this function)
+../main.c:18: error: (Each undeclared identifier is reported only once
+../main.c:18: error: for each function it appears in.)
+../main.c:21: error: 'LOW_SPEED' undeclared (first use in this function)
+../main.c:24: warning: implicit declaration of function 'DCMotor_voidRotRight'
+../main.c:33: warning: implicit declaration of function 'DCMotor_voidBackward'
+../main.c:35: warning: implicit declaration of function 'DCMotor_voidStop'
+../main.c:39: error: 'MED_SPEED' undeclared (first use in this function)
+make: *** [main.o] Error 1
+20:43:06 **** Incremental Build of configuration Debug for project Collision_Avoidance ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:7:
+d:/iti_es_basics/softwares/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+In file included from ../main.c:8:
+../HAL/DCMotor/DCMotor.h:19: error: expected ')' before 'copy_u8Speed'
+../HAL/DCMotor/DCMotor.h:22: error: expected ')' before 'copy_u8Speed'
+../main.c: In function 'main':
+../main.c:18: warning: implicit declaration of function 'DCMotor_voidForward'
+../main.c:33: warning: implicit declaration of function 'DCMotor_voidBackward'
+make: *** [main.o] Error 1
+20:44:13 **** Incremental Build of configuration Debug for project Collision_Avoidance ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:7:
+d:/iti_es_basics/softwares/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+In file included from ../main.c:8:
+../HAL/DCMotor/DCMotor.h:19: error: expected ')' before 'copy_u8Speed'
+../HAL/DCMotor/DCMotor.h:22: error: expected ')' before 'copy_u8Speed'
+../main.c: In function 'main':
+../main.c:18: warning: implicit declaration of function 'DCMotor_voidForward'
+../main.c:33: warning: implicit declaration of function 'DCMotor_voidBackward'
+make: *** [main.o] Error 1
+20:45:12 **** Incremental Build of configuration Debug for project Collision_Avoidance ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:7:
+d:/iti_es_basics/softwares/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+In file included from ../main.c:8:
+../HAL/DCMotor/DCMotor.h:19: error: expected ')' before 'copy_u8Speed'
+../HAL/DCMotor/DCMotor.h:22: error: expected ')' before 'copy_u8Speed'
+../main.c: In function 'main':
+../main.c:18: warning: implicit declaration of function 'DCMotor_voidForward'
+../main.c:33: warning: implicit declaration of function 'DCMotor_voidBackward'
+make: *** [main.o] Error 1
+20:45:51 **** Incremental Build of configuration Debug for project Collision_Avoidance ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:7:
+d:/iti_es_basics/softwares/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+In file included from ../main.c:8:
+../HAL/DCMotor/DCMotor.h:19: error: expected ')' before 'copy_u8Speed'
+../HAL/DCMotor/DCMotor.h:22: error: expected ')' before 'copy_u8Speed'
+../main.c: In function 'main':
+../main.c:18: warning: implicit declaration of function 'DCMotor_voidForward'
+../main.c:33: warning: implicit declaration of function 'DCMotor_voidBackward'
+make: *** [main.o] Error 1
+20:45:55 **** Incremental Build of configuration Debug for project Collision_Avoidance ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:7:
+d:/iti_es_basics/softwares/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+In file included from ../main.c:8:
+../HAL/DCMotor/DCMotor.h:19: error: expected ')' before 'copy_u8Speed'
+../HAL/DCMotor/DCMotor.h:22: error: expected ')' before 'copy_u8Speed'
+../main.c: In function 'main':
+../main.c:18: warning: implicit declaration of function 'DCMotor_voidForward'
+../main.c:33: warning: implicit declaration of function 'DCMotor_voidBackward'
+make: *** [main.o] Error 1
+20:46:08 **** Incremental Build of configuration Debug for project Collision_Avoidance ****
+make all 
+Building file: ../HAL/DCMotor/DCMotor.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"HAL/DCMotor/DCMotor.d" -MT"HAL/DCMotor/DCMotor.o" -c -o "HAL/DCMotor/DCMotor.o" "../HAL/DCMotor/DCMotor.c"
+Finished building: ../HAL/DCMotor/DCMotor.c
+ 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:7:
+d:/iti_es_basics/softwares/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+In file included from ../main.c:8:
+../HAL/DCMotor/DCMotor.h:19: error: expected ')' before 'copy_u8Speed'
+../HAL/DCMotor/DCMotor.h:22: error: expected ')' before 'copy_u8Speed'
+../main.c: In function 'main':
+../main.c:18: warning: implicit declaration of function 'DCMotor_voidForward'
+../main.c:33: warning: implicit declaration of function 'DCMotor_voidBackward'
+make: *** [main.o] Error 1
+20:47:29 **** Clean-only build of configuration Debug for project Collision_Avoidance ****
+make clean 
+rm -rf  ./MCAL/TIMER2/TIM2.o  ./MCAL/TIMER0/TIM0.o  ./MCAL/INT/INT.o  ./MCAL/ICU/ICU.o  ./MCAL/DIO/DIO.o  ./MCAL/ADC/ADC.o  ./HAL/LCD/LCD.o  ./HAL/DCMotor/DCMotor.o  ./main.o  sizedummy  Collision_Avoidance.lss  ./MCAL/TIMER2/TIM2.d  ./MCAL/TIMER0/TIM0.d  ./MCAL/INT/INT.d  ./MCAL/ICU/ICU.d  ./MCAL/DIO/DIO.d  ./MCAL/ADC/ADC.d  ./HAL/LCD/LCD.d  ./HAL/DCMotor/DCMotor.d  ./main.d  Collision_Avoidance.elf
+ 
+20:47:29 **** Incremental Build of configuration Debug for project Collision_Avoidance ****
+make all 
+Building file: ../MCAL/TIMER2/TIM2.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"MCAL/TIMER2/TIM2.d" -MT"MCAL/TIMER2/TIM2.o" -c -o "MCAL/TIMER2/TIM2.o" "../MCAL/TIMER2/TIM2.c"
+../MCAL/TIMER2/TIM2.c:185:1: warning: multi-line comment
+Finished building: ../MCAL/TIMER2/TIM2.c
+ 
+Building file: ../MCAL/TIMER0/TIM0.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"MCAL/TIMER0/TIM0.d" -MT"MCAL/TIMER0/TIM0.o" -c -o "MCAL/TIMER0/TIM0.o" "../MCAL/TIMER0/TIM0.c"
+../MCAL/TIMER0/TIM0.c:185:1: warning: multi-line comment
+Finished building: ../MCAL/TIMER0/TIM0.c
+ 
+Building file: ../MCAL/INT/INT.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"MCAL/INT/INT.d" -MT"MCAL/INT/INT.o" -c -o "MCAL/INT/INT.o" "../MCAL/INT/INT.c"
+Finished building: ../MCAL/INT/INT.c
+ 
+Building file: ../MCAL/ICU/ICU.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"MCAL/ICU/ICU.d" -MT"MCAL/ICU/ICU.o" -c -o "MCAL/ICU/ICU.o" "../MCAL/ICU/ICU.c"
+Finished building: ../MCAL/ICU/ICU.c
+ 
+Building file: ../MCAL/DIO/DIO.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"MCAL/DIO/DIO.d" -MT"MCAL/DIO/DIO.o" -c -o "MCAL/DIO/DIO.o" "../MCAL/DIO/DIO.c"
+../MCAL/DIO/DIO.c: In function 'DIO_u8GetPinValue':
+../MCAL/DIO/DIO.c:92: warning: control reaches end of non-void function
+Finished building: ../MCAL/DIO/DIO.c
+ 
+Building file: ../MCAL/ADC/ADC.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"MCAL/ADC/ADC.d" -MT"MCAL/ADC/ADC.o" -c -o "MCAL/ADC/ADC.o" "../MCAL/ADC/ADC.c"
+Finished building: ../MCAL/ADC/ADC.c
+ 
+Building file: ../HAL/LCD/LCD.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"HAL/LCD/LCD.d" -MT"HAL/LCD/LCD.o" -c -o "HAL/LCD/LCD.o" "../HAL/LCD/LCD.c"
+In file included from ../HAL/LCD/LCD.c:2:
+d:/iti_es_basics/softwares/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../HAL/LCD/LCD.c
+ 
+Building file: ../HAL/DCMotor/DCMotor.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"HAL/DCMotor/DCMotor.d" -MT"HAL/DCMotor/DCMotor.o" -c -o "HAL/DCMotor/DCMotor.o" "../HAL/DCMotor/DCMotor.c"
+Finished building: ../HAL/DCMotor/DCMotor.c
+ 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:7:
+d:/iti_es_basics/softwares/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+In file included from ../main.c:8:
+../HAL/DCMotor/DCMotor.h:19: error: expected ')' before 'copy_u8Speed'
+../HAL/DCMotor/DCMotor.h:22: error: expected ')' before 'copy_u8Speed'
+../main.c: In function 'main':
+../main.c:18: warning: implicit declaration of function 'DCMotor_voidForward'
+../main.c:33: warning: implicit declaration of function 'DCMotor_voidBackward'
+make: *** [main.o] Error 1
+20:50:44 **** Incremental Build of configuration Debug for project Collision_Avoidance ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:7:
+d:/iti_es_basics/softwares/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+In file included from ../main.c:8:
+../HAL/DCMotor/DCMotor.h:19: error: expected ')' before 'copy_u8Speed'
+../HAL/DCMotor/DCMotor.h:22: error: expected ')' before 'copy_u8Speed'
+../main.c: In function 'main':
+../main.c:19: warning: implicit declaration of function 'DCMotor_voidForward'
+../main.c:34: warning: implicit declaration of function 'DCMotor_voidBackward'
+make: *** [main.o] Error 1
+20:51:02 **** Incremental Build of configuration Debug for project Collision_Avoidance ****
+make all 
+Building file: ../HAL/DCMotor/DCMotor.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"HAL/DCMotor/DCMotor.d" -MT"HAL/DCMotor/DCMotor.o" -c -o "HAL/DCMotor/DCMotor.o" "../HAL/DCMotor/DCMotor.c"
+Finished building: ../HAL/DCMotor/DCMotor.c
+ 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:7:
+d:/iti_es_basics/softwares/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+In file included from ../main.c:8:
+../HAL/DCMotor/DCMotor.h:20: error: expected ')' before 'copy_u8Speed'
+../HAL/DCMotor/DCMotor.h:23: error: expected ')' before 'copy_u8Speed'
+../main.c: In function 'main':
+../main.c:19: warning: implicit declaration of function 'DCMotor_voidForward'
+../main.c:34: warning: implicit declaration of function 'DCMotor_voidBackward'
+make: *** [main.o] Error 1
+20:51:26 **** Incremental Build of configuration Debug for project Collision_Avoidance ****
+make all 
+Building file: ../HAL/DCMotor/DCMotor.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"HAL/DCMotor/DCMotor.d" -MT"HAL/DCMotor/DCMotor.o" -c -o "HAL/DCMotor/DCMotor.o" "../HAL/DCMotor/DCMotor.c"
+Finished building: ../HAL/DCMotor/DCMotor.c
+ 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:7:
+d:/iti_es_basics/softwares/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+In file included from ../main.c:8:
+../HAL/DCMotor/DCMotor.h:20: error: expected ')' before 'copy_u8Speed'
+../HAL/DCMotor/DCMotor.h:23: error: expected ')' before 'copy_u8Speed'
+../main.c: In function 'main':
+../main.c:19: warning: implicit declaration of function 'DCMotor_voidForward'
+../main.c:34: warning: implicit declaration of function 'DCMotor_voidBackward'
+make: *** [main.o] Error 1
+20:52:09 **** Incremental Build of configuration Debug for project Collision_Avoidance ****
+make all 
+Building file: ../HAL/DCMotor/DCMotor.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"HAL/DCMotor/DCMotor.d" -MT"HAL/DCMotor/DCMotor.o" -c -o "HAL/DCMotor/DCMotor.o" "../HAL/DCMotor/DCMotor.c"
+Finished building: ../HAL/DCMotor/DCMotor.c
+ 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:7:
+d:/iti_es_basics/softwares/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+In file included from ../main.c:8:
+../HAL/DCMotor/DCMotor.h:20: error: expected ')' before 'copy_u8Speed'
+../HAL/DCMotor/DCMotor.h:23: error: expected ')' before 'copy_u8Speed'
+../main.c: In function 'main':
+../main.c:19: warning: implicit declaration of function 'DCMotor_voidForward'
+../main.c:34: warning: implicit declaration of function 'DCMotor_voidBackward'
+make: *** [main.o] Error 1
+20:53:14 **** Build of configuration Debug for project Collision_Avoidance ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:7:
+d:/iti_es_basics/softwares/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+In file included from ../main.c:8:
+../HAL/DCMotor/DCMotor.h:20: error: expected ')' before 'copy_u8Speed'
+../HAL/DCMotor/DCMotor.h:23: error: expected ')' before 'copy_u8Speed'
+../main.c: In function 'main':
+../main.c:19: warning: implicit declaration of function 'DCMotor_voidForward'
+../main.c:34: warning: implicit declaration of function 'DCMotor_voidBackward'
+make: *** [main.o] Error 1

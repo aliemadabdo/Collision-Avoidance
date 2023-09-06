@@ -1,0 +1,61 @@
+/*
+ * DCMotor.c
+
+ *
+ *  Created on: Sep 6, 2023
+ *      Author: Ali Emad
+ */
+#include <avr/io.h>
+#include "../../LIB/STD_Types.h"
+#include "../../LIB/BIT_Math.h"
+#include "../../MCAL/TIMER0/TIM0.h"
+
+#include "DCMotor.h"
+
+/*
+ * Right motor : PB3 & PB5
+ * Left motor  : PB3 & PB4
+ * */
+
+void DCMotor_voidInit(){
+	/* Set PB3 PB4 PB5 as output pins */
+	DDRB |= 0b00111000;
+
+	/* Set Timer0 and Timer2 in PWM mode*/
+
+}
+
+void DCMotor_voidForward(u8 copy_u8Speed){
+
+	/* Set Pins Values*/
+	OCR0 = 0xff * copy_u8Speed / 100 ; //PB3 PWM value
+	PORTB &= ~(1<<4); // back left
+	PORTB &= ~(1<<5); // back right
+
+}
+
+void DCMotor_voidRotRight(){
+	OCR0 = 0xff * MED_SPEED / 100 ;  //forward
+	PORTB &= ~(1<<4);				 // back left
+	PORTB |=  (1<<5); 				 // back right
+}
+
+void DCMotor_voidRotLeft(){
+	OCR0 = 0xff * MED_SPEED / 100 ; //forward
+	PORTB &= ~(1<<5); 				// back right
+	PORTB |=  (1<<4); 				// back left
+}
+
+void DCMotor_voidBackward(u8 copy_u8Speed){
+	OCR0 = 0xff * (100 - copy_u8Speed) / 100 ; // forward: limits back speed
+	PORTB |= (1<<4); 						   // back left : HIGH
+	PORTB |= (1<<5); 						   // back right: HIGH
+}
+
+
+
+void DCMotor_voidStop(){
+	OCR0 = 0x00 ; 		//forward
+	PORTB &= ~(1<<5); 	// back right
+	PORTB &= ~(1<<4); 	// back left
+}
