@@ -1,4 +1,4 @@
-20:53:14 **** Build of configuration Debug for project Collision_Avoidance ****
+21:57:08 **** Incremental Build of configuration Debug for project Collision_Avoidance ****
 make all 
 Building file: ../main.c
 Invoking: AVR Compiler
@@ -13,5 +13,5 @@ In file included from ../main.c:8:
 ../main.c:34: warning: implicit declaration of function 'DCMotor_voidBackward'
 make: *** [main.o] Error 1
 
-20:53:14 Build Finished (took 254ms)
+21:57:08 Build Finished (took 253ms)
 
