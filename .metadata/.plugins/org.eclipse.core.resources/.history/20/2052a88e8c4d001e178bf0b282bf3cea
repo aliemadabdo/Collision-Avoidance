@@ -8,9 +8,7 @@
 #ifndef TIM2_H
 #define TIM2_H
 
-/* DEPENECIES BEGIN */
-#include "../STD_Types.h"
-/* DEPENECIES END */
+
 /************************************************************** APIs ****************************************************************/
 
 void TIM2_voidInit			(void);

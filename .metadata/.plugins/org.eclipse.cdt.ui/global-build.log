@@ -852,3 +852,394 @@ In file included from ../LIB/RTOS/RTOS.c:15:
 ../LIB/RTOS/RTOS.c:85: warning: passing argument 1 of 'strcpy' makes pointer from integer without a cast
 ../LIB/RTOS/RTOS.c:85: warning: passing argument 2 of 'strcpy' makes pointer from integer without a cast
 make: *** [LIB/RTOS/RTOS.o] Error 1
+16:35:58 **** Incremental Build of configuration Debug for project Collision_Avoidance ****
+make all 
+Building file: ../LIB/RTOS/RTOS.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"LIB/RTOS/RTOS.d" -MT"LIB/RTOS/RTOS.o" -c -o "LIB/RTOS/RTOS.o" "../LIB/RTOS/RTOS.c"
+In file included from ../LIB/RTOS/RTOS.c:15:
+../LIB/RTOS/TIM2.h:15: error: expected ')' before 'Copy_u8Prescaler'
+../LIB/RTOS/TIM2.h:16: error: expected ')' before 'Copy_u8CmpMatVal'
+../LIB/RTOS/RTOS.c: In function 'RTOS_voidInit':
+../LIB/RTOS/RTOS.c:28: warning: implicit declaration of function 'TIM2_voidSetCmpValue'
+../LIB/RTOS/RTOS.c:33: warning: implicit declaration of function 'TIM2_voidTimerStart'
+../LIB/RTOS/RTOS.c: In function 'RTOS_set_priority':
+../LIB/RTOS/RTOS.c:85: warning: passing argument 1 of 'strcpy' makes pointer from integer without a cast
+../LIB/RTOS/RTOS.c:85: warning: passing argument 2 of 'strcpy' makes pointer from integer without a cast
+make: *** [LIB/RTOS/RTOS.o] Error 1
+16:36:18 **** Incremental Build of configuration Debug for project Collision_Avoidance ****
+make all 
+Building file: ../LIB/RTOS/RTOS.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"LIB/RTOS/RTOS.d" -MT"LIB/RTOS/RTOS.o" -c -o "LIB/RTOS/RTOS.o" "../LIB/RTOS/RTOS.c"
+In file included from ../LIB/RTOS/RTOS.c:15:
+../LIB/RTOS/TIM2.h:15: error: expected ')' before 'Copy_u8Prescaler'
+../LIB/RTOS/TIM2.h:16: error: expected ')' before 'Copy_u8CmpMatVal'
+../LIB/RTOS/RTOS.c: In function 'RTOS_voidInit':
+../LIB/RTOS/RTOS.c:28: warning: implicit declaration of function 'TIM2_voidSetCmpValue'
+../LIB/RTOS/RTOS.c:33: warning: implicit declaration of function 'TIM2_voidTimerStart'
+../LIB/RTOS/RTOS.c: In function 'RTOS_set_priority':
+../LIB/RTOS/RTOS.c:85: warning: passing argument 1 of 'strcpy' makes pointer from integer without a cast
+../LIB/RTOS/RTOS.c:85: warning: passing argument 2 of 'strcpy' makes pointer from integer without a cast
+make: *** [LIB/RTOS/RTOS.o] Error 1
+16:38:05 **** Incremental Build of configuration Debug for project Collision_Avoidance ****
+make all 
+Building file: ../LIB/RTOS/RTOS.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"LIB/RTOS/RTOS.d" -MT"LIB/RTOS/RTOS.o" -c -o "LIB/RTOS/RTOS.o" "../LIB/RTOS/RTOS.c"
+In file included from ../LIB/RTOS/RTOS.c:15:
+../LIB/RTOS/TIM2.h:16: error: expected ')' before 'Copy_u8Prescaler'
+../LIB/RTOS/TIM2.h:17: error: expected ')' before 'Copy_u8CmpMatVal'
+../LIB/RTOS/RTOS.c: In function 'RTOS_voidInit':
+../LIB/RTOS/RTOS.c:28: warning: implicit declaration of function 'TIM2_voidSetCmpValue'
+../LIB/RTOS/RTOS.c:33: warning: implicit declaration of function 'TIM2_voidTimerStart'
+../LIB/RTOS/RTOS.c: In function 'RTOS_set_priority':
+../LIB/RTOS/RTOS.c:85: warning: passing argument 1 of 'strcpy' makes pointer from integer without a cast
+../LIB/RTOS/RTOS.c:85: warning: passing argument 2 of 'strcpy' makes pointer from integer without a cast
+make: *** [LIB/RTOS/RTOS.o] Error 1
+16:40:38 **** Incremental Build of configuration Debug for project Collision_Avoidance ****
+make all 
+Building file: ../LIB/RTOS/RTOS.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"LIB/RTOS/RTOS.d" -MT"LIB/RTOS/RTOS.o" -c -o "LIB/RTOS/RTOS.o" "../LIB/RTOS/RTOS.c"
+In file included from ../LIB/RTOS/RTOS.c:15:
+../LIB/RTOS/TIM2.h:16: error: expected ')' before 'Copy_u8Prescaler'
+../LIB/RTOS/TIM2.h:17: error: expected ')' before 'Copy_u8CmpMatVal'
+../LIB/RTOS/RTOS.c: In function 'RTOS_voidInit':
+../LIB/RTOS/RTOS.c:28: warning: implicit declaration of function 'TIM2_voidSetCmpValue'
+../LIB/RTOS/RTOS.c:33: warning: implicit declaration of function 'TIM2_voidTimerStart'
+../LIB/RTOS/RTOS.c: In function 'RTOS_set_priority':
+../LIB/RTOS/RTOS.c:85: warning: passing argument 1 of 'strcpy' makes pointer from integer without a cast
+../LIB/RTOS/RTOS.c:85: warning: passing argument 2 of 'strcpy' makes pointer from integer without a cast
+make: *** [LIB/RTOS/RTOS.o] Error 1
+16:40:43 **** Incremental Build of configuration Debug for project Collision_Avoidance ****
+make all 
+Building file: ../LIB/RTOS/RTOS.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"LIB/RTOS/RTOS.d" -MT"LIB/RTOS/RTOS.o" -c -o "LIB/RTOS/RTOS.o" "../LIB/RTOS/RTOS.c"
+In file included from ../LIB/RTOS/RTOS.c:15:
+../LIB/RTOS/TIM2.h:16: error: expected ')' before 'Copy_u8Prescaler'
+../LIB/RTOS/TIM2.h:17: error: expected ')' before 'Copy_u8CmpMatVal'
+../LIB/RTOS/RTOS.c: In function 'RTOS_voidInit':
+../LIB/RTOS/RTOS.c:28: warning: implicit declaration of function 'TIM2_voidSetCmpValue'
+../LIB/RTOS/RTOS.c:33: warning: implicit declaration of function 'TIM2_voidTimerStart'
+../LIB/RTOS/RTOS.c: In function 'RTOS_set_priority':
+../LIB/RTOS/RTOS.c:85: warning: passing argument 1 of 'strcpy' makes pointer from integer without a cast
+../LIB/RTOS/RTOS.c:85: warning: passing argument 2 of 'strcpy' makes pointer from integer without a cast
+make: *** [LIB/RTOS/RTOS.o] Error 1
+16:40:48 **** Incremental Build of configuration Debug for project Collision_Avoidance ****
+make all 
+Building file: ../LIB/RTOS/RTOS.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"LIB/RTOS/RTOS.d" -MT"LIB/RTOS/RTOS.o" -c -o "LIB/RTOS/RTOS.o" "../LIB/RTOS/RTOS.c"
+In file included from ../LIB/RTOS/RTOS.c:15:
+../LIB/RTOS/TIM2.h:16: error: expected ')' before 'Copy_u8Prescaler'
+../LIB/RTOS/TIM2.h:17: error: expected ')' before 'Copy_u8CmpMatVal'
+../LIB/RTOS/RTOS.c: In function 'RTOS_voidInit':
+../LIB/RTOS/RTOS.c:28: warning: implicit declaration of function 'TIM2_voidSetCmpValue'
+../LIB/RTOS/RTOS.c:33: warning: implicit declaration of function 'TIM2_voidTimerStart'
+../LIB/RTOS/RTOS.c: In function 'RTOS_set_priority':
+../LIB/RTOS/RTOS.c:85: warning: passing argument 1 of 'strcpy' makes pointer from integer without a cast
+../LIB/RTOS/RTOS.c:85: warning: passing argument 2 of 'strcpy' makes pointer from integer without a cast
+make: *** [LIB/RTOS/RTOS.o] Error 1
+16:41:00 **** Incremental Build of configuration Debug for project Collision_Avoidance ****
+make all 
+Building file: ../LIB/RTOS/RTOS.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"LIB/RTOS/RTOS.d" -MT"LIB/RTOS/RTOS.o" -c -o "LIB/RTOS/RTOS.o" "../LIB/RTOS/RTOS.c"
+../LIB/RTOS/RTOS.c: In function 'RTOS_voidInit':
+../LIB/RTOS/RTOS.c:27: warning: implicit declaration of function 'TIM2_voidInit'
+../LIB/RTOS/RTOS.c:28: warning: implicit declaration of function 'TIM2_voidSetCmpValue'
+../LIB/RTOS/RTOS.c:29: warning: implicit declaration of function 'TIM2_voidCmpCallback'
+../LIB/RTOS/RTOS.c:33: warning: implicit declaration of function 'TIM2_voidTimerStart'
+../LIB/RTOS/RTOS.c: In function 'RTOS_set_priority':
+../LIB/RTOS/RTOS.c:85: warning: passing argument 1 of 'strcpy' makes pointer from integer without a cast
+../LIB/RTOS/RTOS.c:85: warning: passing argument 2 of 'strcpy' makes pointer from integer without a cast
+Finished building: ../LIB/RTOS/RTOS.c
+ 
+Building file: ../LIB/RTOS/TIM2.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"LIB/RTOS/TIM2.d" -MT"LIB/RTOS/TIM2.o" -c -o "LIB/RTOS/TIM2.o" "../LIB/RTOS/TIM2.c"
+../LIB/RTOS/TIM2.c:7:29: error: ../LIB/BIT_Math.h: No such file or directory
+../LIB/RTOS/TIM2.c:8:30: error: ../LIB/STD_Types.h: No such file or directory
+../LIB/RTOS/TIM2.c: In function 'TIM2_voidInit':
+../LIB/RTOS/TIM2.c:21: warning: implicit declaration of function 'CLR_BIT'
+../LIB/RTOS/TIM2.c:22: warning: implicit declaration of function 'SET_BIT'
+../LIB/RTOS/TIM2.c: At top level:
+../LIB/RTOS/TIM2.c:28: error: expected ')' before 'Copy_u8Prescaler'
+../LIB/RTOS/TIM2.c:35: error: expected ')' before 'Copy_u8CmpMatVal'
+make: *** [LIB/RTOS/TIM2.o] Error 1
+16:41:17 **** Incremental Build of configuration Debug for project Collision_Avoidance ****
+make all 
+Building file: ../LIB/RTOS/RTOS.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"LIB/RTOS/RTOS.d" -MT"LIB/RTOS/RTOS.o" -c -o "LIB/RTOS/RTOS.o" "../LIB/RTOS/RTOS.c"
+In file included from ../LIB/RTOS/RTOS.c:15:
+../LIB/RTOS/TIM2.h:15: error: expected ')' before 'Copy_u8Prescaler'
+../LIB/RTOS/TIM2.h:16: error: expected ')' before 'Copy_u8CmpMatVal'
+../LIB/RTOS/RTOS.c: In function 'RTOS_voidInit':
+../LIB/RTOS/RTOS.c:28: warning: implicit declaration of function 'TIM2_voidSetCmpValue'
+../LIB/RTOS/RTOS.c:33: warning: implicit declaration of function 'TIM2_voidTimerStart'
+../LIB/RTOS/RTOS.c: In function 'RTOS_set_priority':
+../LIB/RTOS/RTOS.c:85: warning: passing argument 1 of 'strcpy' makes pointer from integer without a cast
+../LIB/RTOS/RTOS.c:85: warning: passing argument 2 of 'strcpy' makes pointer from integer without a cast
+make: *** [LIB/RTOS/RTOS.o] Error 1
+16:41:26 **** Incremental Build of configuration Debug for project Collision_Avoidance ****
+make all 
+Building file: ../LIB/RTOS/RTOS.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"LIB/RTOS/RTOS.d" -MT"LIB/RTOS/RTOS.o" -c -o "LIB/RTOS/RTOS.o" "../LIB/RTOS/RTOS.c"
+In file included from ../LIB/RTOS/RTOS.c:15:
+../LIB/RTOS/TIM2.h:15: error: expected ')' before 'Copy_u8Prescaler'
+../LIB/RTOS/TIM2.h:16: error: expected ')' before 'Copy_u8CmpMatVal'
+../LIB/RTOS/RTOS.c: In function 'RTOS_voidInit':
+../LIB/RTOS/RTOS.c:28: warning: implicit declaration of function 'TIM2_voidSetCmpValue'
+../LIB/RTOS/RTOS.c:33: warning: implicit declaration of function 'TIM2_voidTimerStart'
+../LIB/RTOS/RTOS.c: In function 'RTOS_set_priority':
+../LIB/RTOS/RTOS.c:85: warning: passing argument 1 of 'strcpy' makes pointer from integer without a cast
+../LIB/RTOS/RTOS.c:85: warning: passing argument 2 of 'strcpy' makes pointer from integer without a cast
+make: *** [LIB/RTOS/RTOS.o] Error 1
+16:41:29 **** Incremental Build of configuration Debug for project Collision_Avoidance ****
+make all 
+Building file: ../LIB/RTOS/RTOS.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"LIB/RTOS/RTOS.d" -MT"LIB/RTOS/RTOS.o" -c -o "LIB/RTOS/RTOS.o" "../LIB/RTOS/RTOS.c"
+In file included from ../LIB/RTOS/RTOS.c:15:
+../LIB/RTOS/TIM2.h:15: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'u8'
+../LIB/RTOS/TIM2.h:16: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'u8'
+../LIB/RTOS/RTOS.c: In function 'RTOS_voidInit':
+../LIB/RTOS/RTOS.c:28: warning: implicit declaration of function 'TIM2_voidSetCmpValue'
+../LIB/RTOS/RTOS.c:33: warning: implicit declaration of function 'TIM2_voidTimerStart'
+../LIB/RTOS/RTOS.c: In function 'RTOS_set_priority':
+../LIB/RTOS/RTOS.c:85: warning: passing argument 1 of 'strcpy' makes pointer from integer without a cast
+../LIB/RTOS/RTOS.c:85: warning: passing argument 2 of 'strcpy' makes pointer from integer without a cast
+make: *** [LIB/RTOS/RTOS.o] Error 1
+16:41:35 **** Incremental Build of configuration Debug for project Collision_Avoidance ****
+make all 
+Building file: ../LIB/RTOS/RTOS.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"LIB/RTOS/RTOS.d" -MT"LIB/RTOS/RTOS.o" -c -o "LIB/RTOS/RTOS.o" "../LIB/RTOS/RTOS.c"
+In file included from ../LIB/RTOS/RTOS.c:15:
+../LIB/RTOS/TIM2.h:15: error: expected ')' before 'Copy_u8Prescaler'
+../LIB/RTOS/TIM2.h:16: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'u8'
+../LIB/RTOS/RTOS.c: In function 'RTOS_voidInit':
+../LIB/RTOS/RTOS.c:28: warning: implicit declaration of function 'TIM2_voidSetCmpValue'
+../LIB/RTOS/RTOS.c:33: warning: implicit declaration of function 'TIM2_voidTimerStart'
+../LIB/RTOS/RTOS.c: In function 'RTOS_set_priority':
+../LIB/RTOS/RTOS.c:85: warning: passing argument 1 of 'strcpy' makes pointer from integer without a cast
+../LIB/RTOS/RTOS.c:85: warning: passing argument 2 of 'strcpy' makes pointer from integer without a cast
+make: *** [LIB/RTOS/RTOS.o] Error 1
+16:41:40 **** Incremental Build of configuration Debug for project Collision_Avoidance ****
+make all 
+Building file: ../LIB/RTOS/RTOS.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"LIB/RTOS/RTOS.d" -MT"LIB/RTOS/RTOS.o" -c -o "LIB/RTOS/RTOS.o" "../LIB/RTOS/RTOS.c"
+In file included from ../LIB/RTOS/RTOS.c:15:
+../LIB/RTOS/TIM2.h:15: error: expected ')' before 'Copy_u8Prescaler'
+../LIB/RTOS/TIM2.h:16: error: expected ')' before 'Copy_u8CmpMatVal'
+../LIB/RTOS/RTOS.c: In function 'RTOS_voidInit':
+../LIB/RTOS/RTOS.c:28: warning: implicit declaration of function 'TIM2_voidSetCmpValue'
+../LIB/RTOS/RTOS.c:33: warning: implicit declaration of function 'TIM2_voidTimerStart'
+../LIB/RTOS/RTOS.c: In function 'RTOS_set_priority':
+../LIB/RTOS/RTOS.c:85: warning: passing argument 1 of 'strcpy' makes pointer from integer without a cast
+../LIB/RTOS/RTOS.c:85: warning: passing argument 2 of 'strcpy' makes pointer from integer without a cast
+make: *** [LIB/RTOS/RTOS.o] Error 1
+16:42:52 **** Incremental Build of configuration Debug for project Collision_Avoidance ****
+make all 
+Building file: ../LIB/RTOS/RTOS.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"LIB/RTOS/RTOS.d" -MT"LIB/RTOS/RTOS.o" -c -o "LIB/RTOS/RTOS.o" "../LIB/RTOS/RTOS.c"
+../LIB/RTOS/RTOS.c: In function 'RTOS_set_priority':
+../LIB/RTOS/RTOS.c:85: warning: passing argument 1 of 'strcpy' makes pointer from integer without a cast
+../LIB/RTOS/RTOS.c:85: warning: passing argument 2 of 'strcpy' makes pointer from integer without a cast
+Finished building: ../LIB/RTOS/RTOS.c
+ 
+Building file: ../LIB/RTOS/TIM2.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"LIB/RTOS/TIM2.d" -MT"LIB/RTOS/TIM2.o" -c -o "LIB/RTOS/TIM2.o" "../LIB/RTOS/TIM2.c"
+../LIB/RTOS/TIM2.c:7:29: error: ../LIB/BIT_Math.h: No such file or directory
+../LIB/RTOS/TIM2.c:8:30: error: ../LIB/STD_Types.h: No such file or directory
+../LIB/RTOS/TIM2.c: In function 'TIM2_voidInit':
+../LIB/RTOS/TIM2.c:21: warning: implicit declaration of function 'CLR_BIT'
+../LIB/RTOS/TIM2.c:22: warning: implicit declaration of function 'SET_BIT'
+make: *** [LIB/RTOS/TIM2.o] Error 1
+16:43:55 **** Incremental Build of configuration Debug for project Collision_Avoidance ****
+make all 
+Building file: ../LIB/RTOS/TIM2.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"LIB/RTOS/TIM2.d" -MT"LIB/RTOS/TIM2.o" -c -o "LIB/RTOS/TIM2.o" "../LIB/RTOS/TIM2.c"
+Finished building: ../LIB/RTOS/TIM2.c
+ 
+Building file: ../HAL/UltraSonic/Ultrasonic.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"HAL/UltraSonic/Ultrasonic.d" -MT"HAL/UltraSonic/Ultrasonic.o" -c -o "HAL/UltraSonic/Ultrasonic.o" "../HAL/UltraSonic/Ultrasonic.c"
+In file included from ../HAL/UltraSonic/Ultrasonic.c:12:
+d:/iti_es_basics/softwares/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/delay.h:36:2: warning: #warning "This file has been moved to <util/delay.h>."
+In file included from d:/iti_es_basics/softwares/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/delay.h:37,
+                 from ../HAL/UltraSonic/Ultrasonic.c:12:
+d:/iti_es_basics/softwares/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../HAL/UltraSonic/Ultrasonic.c
+ 
+Building file: ../HAL/LCD/LCD.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"HAL/LCD/LCD.d" -MT"HAL/LCD/LCD.o" -c -o "HAL/LCD/LCD.o" "../HAL/LCD/LCD.c"
+In file included from ../HAL/LCD/LCD.c:2:
+d:/iti_es_basics/softwares/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../HAL/LCD/LCD.c
+ 
+Building file: ../HAL/DCMotor/DCMotor.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"HAL/DCMotor/DCMotor.d" -MT"HAL/DCMotor/DCMotor.o" -c -o "HAL/DCMotor/DCMotor.o" "../HAL/DCMotor/DCMotor.c"
+Finished building: ../HAL/DCMotor/DCMotor.c
+ 
+Building file: ../.metadata/.plugins/org.eclipse.cdt.make.core/specs.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF".metadata/.plugins/org.eclipse.cdt.make.core/specs.d" -MT".metadata/.plugins/org.eclipse.cdt.make.core/specs.o" -c -o ".metadata/.plugins/org.eclipse.cdt.make.core/specs.o" "../.metadata/.plugins/org.eclipse.cdt.make.core/specs.c"
+Finished building: ../.metadata/.plugins/org.eclipse.cdt.make.core/specs.c
+ 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:9:
+d:/iti_es_basics/softwares/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../main.c: In function 'main':
+../main.c:54: warning: large integer implicitly truncated to unsigned type
+../main.c: In function 'Task_Motors':
+../main.c:80: warning: implicit declaration of function 'DCMotor_voidForwad'
+../main.c: In function 'Task_LCD':
+../main.c:119: warning: implicit declaration of function 'LCD_voidClear'
+../main.c:122: warning: pointer targets in passing argument 1 of 'LCD_voidSendString' differ in signedness
+../main.c:126: warning: pointer targets in passing argument 1 of 'LCD_voidSendString' differ in signedness
+../main.c:135: warning: pointer targets in passing argument 1 of 'LCD_voidSendString' differ in signedness
+../main.c:137: warning: pointer targets in passing argument 1 of 'LCD_voidSendString' differ in signedness
+../main.c:139: warning: pointer targets in passing argument 1 of 'LCD_voidSendString' differ in signedness
+../main.c:141: warning: pointer targets in passing argument 1 of 'LCD_voidSendString' differ in signedness
+../main.c:143: warning: pointer targets in passing argument 1 of 'LCD_voidSendString' differ in signedness
+../main.c:148: warning: pointer targets in passing argument 1 of 'LCD_voidSendString' differ in signedness
+Finished building: ../main.c
+ 
+Building target: Collision_Avoidance.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Collision_Avoidance.map -mmcu=atmega32 -o "Collision_Avoidance.elf"  ./MCAL/TIMER0/TIM0.o  ./MCAL/ICU/ICU.o  ./MCAL/DIO/DIO.o  ./LIB/RTOS/RTOS.o ./LIB/RTOS/TIM2.o  ./HAL/UltraSonic/Ultrasonic.o  ./HAL/LCD/LCD.o  ./HAL/DCMotor/DCMotor.o  ./.metadata/.plugins/org.eclipse.cdt.make.core/specs.o  ./main.o   
+./main.o: In function `main':
+../main.c:50: undefined reference to `DCMotor_voidForwad'
+../main.c:50: undefined reference to `DCMotor_voidForwad'
+../main.c:50: undefined reference to `DCMotor_voidForwad'
+../main.c:50: undefined reference to `DCMotor_voidForwad'
+../main.c:50: undefined reference to `DCMotor_voidForwad'
+./main.o:../main.c:50: more undefined references to `DCMotor_voidForwad' follow
+./main.o: In function `main':
+../main.c:38: undefined reference to `LCD_voidClear'
+../main.c:50: undefined reference to `LCD_voidClear'
+make: *** [Collision_Avoidance.elf] Error 1
+16:44:43 **** Incremental Build of configuration Debug for project Collision_Avoidance ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:9:
+d:/iti_es_basics/softwares/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../main.c: In function 'main':
+../main.c:54: warning: large integer implicitly truncated to unsigned type
+../main.c: In function 'Task_Motors':
+../main.c:91: warning: implicit declaration of function 'DCMotor_voidForwad'
+../main.c: In function 'Task_LCD':
+../main.c:119: warning: implicit declaration of function 'LCD_voidClear'
+../main.c:122: warning: pointer targets in passing argument 1 of 'LCD_voidSendString' differ in signedness
+../main.c:126: warning: pointer targets in passing argument 1 of 'LCD_voidSendString' differ in signedness
+../main.c:135: warning: pointer targets in passing argument 1 of 'LCD_voidSendString' differ in signedness
+../main.c:137: warning: pointer targets in passing argument 1 of 'LCD_voidSendString' differ in signedness
+../main.c:139: warning: pointer targets in passing argument 1 of 'LCD_voidSendString' differ in signedness
+../main.c:141: warning: pointer targets in passing argument 1 of 'LCD_voidSendString' differ in signedness
+../main.c:143: warning: pointer targets in passing argument 1 of 'LCD_voidSendString' differ in signedness
+../main.c:148: warning: pointer targets in passing argument 1 of 'LCD_voidSendString' differ in signedness
+Finished building: ../main.c
+ 
+Building target: Collision_Avoidance.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Collision_Avoidance.map -mmcu=atmega32 -o "Collision_Avoidance.elf"  ./MCAL/TIMER0/TIM0.o  ./MCAL/ICU/ICU.o  ./MCAL/DIO/DIO.o  ./LIB/RTOS/RTOS.o ./LIB/RTOS/TIM2.o  ./HAL/UltraSonic/Ultrasonic.o  ./HAL/LCD/LCD.o  ./HAL/DCMotor/DCMotor.o  ./.metadata/.plugins/org.eclipse.cdt.make.core/specs.o  ./main.o   
+./main.o: In function `main':
+../main.c:50: undefined reference to `DCMotor_voidForwad'
+../main.c:50: undefined reference to `DCMotor_voidForwad'
+../main.c:50: undefined reference to `DCMotor_voidForwad'
+../main.c:50: undefined reference to `DCMotor_voidForwad'
+../main.c:50: undefined reference to `DCMotor_voidForwad'
+../main.c:38: undefined reference to `LCD_voidClear'
+../main.c:50: undefined reference to `LCD_voidClear'
+make: *** [Collision_Avoidance.elf] Error 1
+16:46:41 **** Incremental Build of configuration Debug for project Collision_Avoidance ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:9:
+d:/iti_es_basics/softwares/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../main.c: In function 'main':
+../main.c:54: warning: large integer implicitly truncated to unsigned type
+../main.c: In function 'Task_LCD':
+../main.c:119: warning: implicit declaration of function 'LCD_voidClear'
+../main.c:122: warning: pointer targets in passing argument 1 of 'LCD_voidSendString' differ in signedness
+../main.c:126: warning: pointer targets in passing argument 1 of 'LCD_voidSendString' differ in signedness
+../main.c:135: warning: pointer targets in passing argument 1 of 'LCD_voidSendString' differ in signedness
+../main.c:137: warning: pointer targets in passing argument 1 of 'LCD_voidSendString' differ in signedness
+../main.c:139: warning: pointer targets in passing argument 1 of 'LCD_voidSendString' differ in signedness
+../main.c:141: warning: pointer targets in passing argument 1 of 'LCD_voidSendString' differ in signedness
+../main.c:143: warning: pointer targets in passing argument 1 of 'LCD_voidSendString' differ in signedness
+../main.c:148: warning: pointer targets in passing argument 1 of 'LCD_voidSendString' differ in signedness
+Finished building: ../main.c
+ 
+Building target: Collision_Avoidance.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Collision_Avoidance.map -mmcu=atmega32 -o "Collision_Avoidance.elf"  ./MCAL/TIMER0/TIM0.o  ./MCAL/ICU/ICU.o  ./MCAL/DIO/DIO.o  ./LIB/RTOS/RTOS.o ./LIB/RTOS/TIM2.o  ./HAL/UltraSonic/Ultrasonic.o  ./HAL/LCD/LCD.o  ./HAL/DCMotor/DCMotor.o  ./.metadata/.plugins/org.eclipse.cdt.make.core/specs.o  ./main.o   
+./main.o: In function `main':
+../main.c:38: undefined reference to `LCD_voidClear'
+../main.c:50: undefined reference to `LCD_voidClear'
+make: *** [Collision_Avoidance.elf] Error 1
+16:51:25 **** Incremental Build of configuration Debug for project Collision_Avoidance ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:9:
+d:/iti_es_basics/softwares/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../main.c: In function 'main':
+../main.c:54: warning: large integer implicitly truncated to unsigned type
+../main.c: In function 'Task_LCD':
+../main.c:122: warning: pointer targets in passing argument 1 of 'LCD_voidSendString' differ in signedness
+../main.c:126: warning: pointer targets in passing argument 1 of 'LCD_voidSendString' differ in signedness
+../main.c:135: warning: pointer targets in passing argument 1 of 'LCD_voidSendString' differ in signedness
+../main.c:137: warning: pointer targets in passing argument 1 of 'LCD_voidSendString' differ in signedness
+../main.c:139: warning: pointer targets in passing argument 1 of 'LCD_voidSendString' differ in signedness
+../main.c:141: warning: pointer targets in passing argument 1 of 'LCD_voidSendString' differ in signedness
+../main.c:143: warning: pointer targets in passing argument 1 of 'LCD_voidSendString' differ in signedness
+../main.c:148: warning: pointer targets in passing argument 1 of 'LCD_voidSendString' differ in signedness
+Finished building: ../main.c
+ 
+Building target: Collision_Avoidance.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Collision_Avoidance.map -mmcu=atmega32 -o "Collision_Avoidance.elf"  ./MCAL/TIMER0/TIM0.o  ./MCAL/ICU/ICU.o  ./MCAL/DIO/DIO.o  ./LIB/RTOS/RTOS.o ./LIB/RTOS/TIM2.o  ./HAL/UltraSonic/Ultrasonic.o  ./HAL/LCD/LCD.o  ./HAL/DCMotor/DCMotor.o  ./.metadata/.plugins/org.eclipse.cdt.make.core/specs.o  ./main.o   
+Finished building target: Collision_Avoidance.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Collision_Avoidance.elf  >"Collision_Avoidance.lss"
+Finished building: Collision_Avoidance.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Collision_Avoidance.elf  "Collision_Avoidance.hex"
+Finished building: Collision_Avoidance.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 Collision_Avoidance.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   15548 bytes (47.4% Full)
+(.text + .data + .bootloader)
+
+Data:        565 bytes (27.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 

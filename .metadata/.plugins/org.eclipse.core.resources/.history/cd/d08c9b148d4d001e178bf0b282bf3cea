@@ -77,7 +77,7 @@ void Task_Motors(void){
 		DCMotor_voidRotRight();
 		direction = ROT_RIGHT;  speed = MED_SPEED;
 		_delay_ms(100);
-		DCMotor_voidForward(LOW_SPEED);
+		DCMotor_voidForwad(LOW_SPEED);
 		direction = FORWARD;  speed = LOW_SPEED;
 	}
 	else if(distance_cm < 10 ){ 		//About to crash!!
@@ -88,25 +88,25 @@ void Task_Motors(void){
 		DCMotor_voidRotRight();
 		direction = ROT_RIGHT;  speed = MED_SPEED;
 		_delay_ms(100);
-		DCMotor_voidForward(LOW_SPEED);
+		DCMotor_voidForwad(LOW_SPEED);
 		direction = FORWARD;  speed = LOW_SPEED;
 
 	}
 	else if(distance_cm < 50 ){ 		// traffic
-		DCMotor_voidForward(LOW_SPEED);
+		DCMotor_voidForwad(LOW_SPEED);
 		direction = FORWARD;  speed = LOW_SPEED;
 	}
 
 	else if(distance_cm < 100 ){ 		// less traffic
-		DCMotor_voidForward(MED_SPEED);
+		DCMotor_voidForwad(MED_SPEED);
 		direction = FORWARD;  speed = MED_SPEED;
 	}
 	else if(distance_cm < 250 ){ 		// 3la elba7r
-		DCMotor_voidForward(HIGH_SPEED);
+		DCMotor_voidForwad(HIGH_SPEED);
 		direction = FORWARD;  speed = HIGH_SPEED;
 	}
 	else if(distance_cm < 500 ){ 	// cairo alex desert road
-		DCMotor_voidForward(MAX_SPEED);
+		DCMotor_voidForwad(MAX_SPEED);
 		direction = FORWARD;  speed = MAX_SPEED;
 
 	}
@@ -116,7 +116,7 @@ void Task_LCD (void)
 {
 	    if (distance_cm == '0')
         {
-	    	LCD_voidSendCommand(CLEAR);
+        	LCD_voidClear();
 
         	LCD_voidSetLocation(LCD_LINE1,0);
         	LCD_voidSendString("FORWARD:");
@@ -127,7 +127,7 @@ void Task_LCD (void)
         }
         else
         {
-        	LCD_voidSendCommand(CLEAR);
+			LCD_voidClear();
 			LCD_voidSetLocation(LCD_LINE1,0);
 
 			switch(direction){

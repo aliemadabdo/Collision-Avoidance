@@ -116,7 +116,7 @@ void Task_LCD (void)
 {
 	    if (distance_cm == '0')
         {
-	    	LCD_voidSendCommand(CLEAR);
+        	LCD_voidClear();
 
         	LCD_voidSetLocation(LCD_LINE1,0);
         	LCD_voidSendString("FORWARD:");
@@ -127,7 +127,7 @@ void Task_LCD (void)
         }
         else
         {
-        	LCD_voidSendCommand(CLEAR);
+			LCD_voidClear();
 			LCD_voidSetLocation(LCD_LINE1,0);
 
 			switch(direction){

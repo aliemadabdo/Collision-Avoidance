@@ -8,12 +8,13 @@
 #ifndef TIM2_H
 #define TIM2_H
 
-/* DEPENECIES BEGIN */
-#include "../STD_Types.h"
-/* DEPENECIES END */
+
 /************************************************************** APIs ****************************************************************/
 
 void TIM2_voidInit			(void);
+
+
+
 
 void TIM2_voidTimerStart	(u8 Copy_u8Prescaler);
 void TIM2_voidSetCmpValue	(u8 Copy_u8CmpMatVal);
@@ -21,5 +22,16 @@ void TIM2_voidCmpCallback   (void (*Copy_pfTIM2Cmp)(void) );
 void TIM2_voidTimerStop		(void);
 
 // returned type (* pf) (input parameters)
+
+
+
+
+
+
+
+
+
+
+
 
 #endif /* MCAL_TIMER2_TIM2_H_ */
