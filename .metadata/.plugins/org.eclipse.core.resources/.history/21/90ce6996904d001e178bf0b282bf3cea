@@ -7,7 +7,6 @@
 
 /* AVR libraries */
 #include <util/delay.h>
-#include <avr/io.h>
 #include <stdbool.h>
 /* PreImplemented Drivers */
 #include "LIB/STD_Types.h"
@@ -30,51 +29,43 @@ void Task_Ultrasonic (void);
 void Task_Motors (void);
 void Task_LCD (void);
 
-/******* TEASTING **********/
-#define DEBUG false
-
-#if DEBUG
 void L0(void);
 void L1(void);
 void L2(void);
-#endif
 
-
+#define DEBUG true
 
 int main(void){
 
-	/******************** INITS***************/
-	RTOS_voidInit(TIM0_PRESCALER_8, 124);
+	RTOS_voidInit(TIM0_PRESCALER_8, 1);
 	LCD_voidInit();
 	ULTRASONIC_voidInit();
 	DCMotor_voidInit();
+	/****************DEBUGGING*/
+	if (DEBUG){
+		RTOS_create_task(
+				"LED_FAST",
+				0,                   //PRIORITY
+				60,				     //PIRODICITY
+				&L0);
 
-	/****************DEBUGGING****************/
-#if DEBUG
-	DDRA |= 0b00000111;
-	RTOS_create_task(
-			"LED_FAST",
-			0,                   //PRIORITY
-			60,				     //PIRODICITY
-			&L0);
+		RTOS_create_task(
+				"LED_MED",
+				1,                   //PRIORITY
+				200,                 //PIRODICITY
+				&L1);
 
-	RTOS_create_task(
-			"LED_MED",
-			1,                   //PRIORITY
-			200,                 //PIRODICITY
-			&L1);
+		RTOS_create_task(
+				"LED_SLOW",
+				2,                  //PRIORITY
+				500,                //PIRODICITY
+				&L2);
 
-	RTOS_create_task(
-			"LED_SLOW",
-			2,                  //PRIORITY
-			500,                //PIRODICITY
-			&L2);
-#endif
 
-	/******************* TASK CREATION ******************/
+	}
 	RTOS_create_task(
 			"ULTRASONIC",
-			0, // --> HIGHEST PRIORITY //PRIORITY
+			0,                   //PRIORITY
 			60,				     //PIRODICITY
 			&Task_Ultrasonic);
 
@@ -90,7 +81,7 @@ int main(void){
 			500,                //PIRODICITY
 			&Task_LCD);
 
-	while(1); //HALT
+	while(1);
 
 	return 0;
 }
@@ -185,17 +176,15 @@ void Task_LCD (void)
 	//        _delay_ms(1000);
 }
 
-#if DEBUG
-void L0(void){
-	TGL_BIT(PORTA, 0);
-}
+if (DEBUG){
+	void L0(void){
+		TGL_BIT(POARTA, 0);
+	}
 
-void L1(void){
-	TGL_BIT(PORTA, 1);
+	void L1(void){
+		TGL_BIT(POARTA, 1);
+	}
+	void L2(void){
+		TGL_BIT(POARTA, 2);
+	}
 }
-void L2(void){
-	TGL_BIT(PORTA, 2);
-}
-#endif
-
-

@@ -7,11 +7,9 @@
 
 /* AVR libraries */
 #include <util/delay.h>
-#include <avr/io.h>
-#include <stdbool.h>
+
 /* PreImplemented Drivers */
 #include "LIB/STD_Types.h"
-#include "LIB/BIT_Math.h"
 #include "HAL/LCD/LCD.h"
 
 /* Implemented Drivers */
@@ -30,67 +28,34 @@ void Task_Ultrasonic (void);
 void Task_Motors (void);
 void Task_LCD (void);
 
-/******* TEASTING **********/
-#define DEBUG false
-
-#if DEBUG
-void L0(void);
-void L1(void);
-void L2(void);
-#endif
-
-
-
 int main(void){
 
-	/******************** INITS***************/
-	RTOS_voidInit(TIM0_PRESCALER_8, 124);
+	RTOS_voidInit(TIM0_PRESCALER_8, 1);
 	LCD_voidInit();
 	ULTRASONIC_voidInit();
 	DCMotor_voidInit();
 
-	/****************DEBUGGING****************/
-#if DEBUG
-	DDRA |= 0b00000111;
 	RTOS_create_task(
-			"LED_FAST",
-			0,                   //PRIORITY
-			60,				     //PIRODICITY
-			&L0);
+		"ULTRASONIC",
+		0,                   //PRIORITY
+		60,				     //PIRODICITY
+		&Task_Ultrasonic);
 
 	RTOS_create_task(
-			"LED_MED",
-			1,                   //PRIORITY
-			200,                 //PIRODICITY
-			&L1);
+		"MOTORS",
+		1,                   //PRIORITY
+		200,                 //PIRODICITY
+		&Task_Motors);
 
 	RTOS_create_task(
-			"LED_SLOW",
-			2,                  //PRIORITY
-			500,                //PIRODICITY
-			&L2);
-#endif
+		"LCD",
+		2,                  //PRIORITY
+		500,                //PIRODICITY
+		&Task_LCD);
 
-	/******************* TASK CREATION ******************/
-	RTOS_create_task(
-			"ULTRASONIC",
-			0, // --> HIGHEST PRIORITY //PRIORITY
-			60,				     //PIRODICITY
-			&Task_Ultrasonic);
+	while(1){
 
-	RTOS_create_task(
-			"MOTORS",
-			1,                   //PRIORITY
-			200,                 //PIRODICITY
-			&Task_Motors);
-
-	RTOS_create_task(
-			"LCD",
-			2,                  //PRIORITY
-			500,                //PIRODICITY
-			&Task_LCD);
-
-	while(1); //HALT
+	}
 
 	return 0;
 }
@@ -151,51 +116,38 @@ void Task_LCD (void)
 {
 	LCD_voidSendCommand(CLEAR);
 
-	if (distance_cm == '0')
-	{
-		LCD_voidSetLocation(LCD_LINE1,0);
-		LCD_voidSendString("FORWARD:");
-		LCD_voidSendNumber(speed);
+	    if (distance_cm == '0')
+        {
 
-		LCD_voidSetLocation(LCD_LINE2,0);
-		LCD_voidSendString("out of range:");
-	}
-	else
-	{
-		LCD_voidSetLocation(LCD_LINE1,0);
+        	LCD_voidSetLocation(LCD_LINE1,0);
+        	LCD_voidSendString("FORWARD:");
+			LCD_voidSendNumber(speed);
 
-		switch(direction){
-		case FORWARD:
-			LCD_voidSendString("FORWARD:"); break;
-		case BACKWARD:
-			LCD_voidSendString("BACKWARD:"); break;
-		case ROT_RIGHT:
-			LCD_voidSendString("ROT_RIGHT:"); break;
-		case ROT_LEFT:
-			LCD_voidSendString("ROT_LEFT:"); break;
-		default:
-			LCD_voidSendString("STOP:");
-		}
-		LCD_voidSendNumber(speed);
+        	LCD_voidSetLocation(LCD_LINE2,0);
+			LCD_voidSendString("out of range:");
+        }
+        else
+        {
+			LCD_voidSetLocation(LCD_LINE1,0);
 
-		LCD_voidSetLocation(LCD_LINE2,0);
-		LCD_voidSendString("distance:");
-		LCD_voidSendNumber(distance_cm);
-	}
-	//        _delay_ms(1000);
+			switch(direction){
+			case FORWARD:
+				LCD_voidSendString("FORWARD:"); break;
+			case BACKWARD:
+				LCD_voidSendString("BACKWARD:"); break;
+			case ROT_RIGHT:
+				LCD_voidSendString("ROT_RIGHT:"); break;
+			case ROT_LEFT:
+				LCD_voidSendString("ROT_LEFT:"); break;
+			default:
+				LCD_voidSendString("STOP:");
+			}
+			LCD_voidSendNumber(speed);
+
+			LCD_voidSetLocation(LCD_LINE2,0);
+			LCD_voidSendString("distance:");
+			LCD_voidSendNumber(distance_cm);
+        }
+
+//        _delay_ms(1000);
 }
-
-#if DEBUG
-void L0(void){
-	TGL_BIT(PORTA, 0);
-}
-
-void L1(void){
-	TGL_BIT(PORTA, 1);
-}
-void L2(void){
-	TGL_BIT(PORTA, 2);
-}
-#endif
-
-

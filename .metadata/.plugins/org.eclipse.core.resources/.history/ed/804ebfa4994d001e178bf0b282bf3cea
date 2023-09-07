@@ -60,18 +60,16 @@ void RTOS_bubble_sort_task(u8 copy_start_index){
     }
 }
 
-
 void RTOS_schedule(void){
-
     for(int index=0; index<RTOS_tasks_array_index; index++){
-            if(RTOS_tasks_array[index].wait_countdown <= 0){ // <<---
+            if(RTOS_tasks_array[index].wait_countdown <= 0){
                 // task ready to run
                 RTOS_tasks_array[index].wait_countdown = RTOS_tasks_array[index].pirodicity;
                 strcpy(RTOS_running_task, RTOS_tasks_array[index].name);
                 RTOS_tasks_array[index].service_routine_ptr();
             }
             else{
-                // task should wait for upcoming ticks <<<-----
+                // task should wait for upcoming ticks
                 RTOS_tasks_array[index].wait_countdown--;
             }
 
