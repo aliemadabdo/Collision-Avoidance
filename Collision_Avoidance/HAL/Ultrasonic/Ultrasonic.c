@@ -68,7 +68,7 @@ void ULTRASONIC_TravelTimeCB (void)
 u32 ULTRASONIC_voidReturnDistanceCm(void)
 {
 	u32 Local_ULTRASONIC_Distance_Cm =0;
-	if(TravelTime>38000)
+	if(TravelTime>36000)
 	{
 		Local_ULTRASONIC_Distance_Cm ='O'; // Indicate error in echo
 	}

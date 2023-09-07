@@ -1,0 +1,87 @@
+/*
+ * main.c
+ *
+ *  Created on: Sep 6, 2023
+ *      Author: Ali Emad | Nada Atia | Amr Ramadan
+ */
+#include <util/delay.h>
+#include "HAL/DCMotor/DCMotor.h"
+#include "LIB/RTOS/RTOS.h"
+
+int ultrasonicReading = 0;
+
+void LED0_ISR (void){
+	// BlInk LED WITH PERiod = 10 us
+}
+void Task2_Motors (void);
+
+void LED2_ISR (void){
+	// BlInk LED WITH PERiod = 50 ms
+}
+
+
+/* you can pass any value between 0 and 100 as a speed to the functions*/
+
+int main(void){
+	int reading = 49 ;
+
+	DCMotor_voidInit();
+
+	RTOS_create_task(
+		"LED0",
+		0,                 //PRIORITY
+		1,				   //PIRODICITY
+		&LED0_ISR);
+
+	RTOS_create_task(
+		"MOTORS",
+		1,                 //PRIORITY
+		2,                 //PIRODICITY
+		&Task2_Motors);
+
+	RTOS_create_task(
+		"LED2",
+		2,                //PRIORITY
+		4,                //PIRODICITY
+		&LED2_ISR);
+
+	while(1){
+
+	}
+	return 0;
+}
+
+
+void Task2_Motors(void){
+	if(ultrasonicReading < 1){ 				//Deadlock
+
+		DCMotor_voidBackward(LOW_SPEED);
+		_delay_ms(100);
+		DCMotor_voidRotRight();
+		_delay_ms(100);
+		DCMotor_voidForwad(LOW_SPEED);
+	}
+	else if(ultrasonicReading < 10 ){ 		//About to crash!!
+		DCMotor_voidStop();
+		_delay_ms(100);
+		DCMotor_voidRotRight();
+		_delay_ms(100);
+		DCMotor_voidForwad(LOW_SPEED);
+	}
+	else if(ultrasonicReading < 50 ){ 		// traffic
+		DCMotor_voidForwad(LOW_SPEED);
+	}
+
+	else if(ultrasonicReading < 100 ){ 		// less traffic
+		DCMotor_voidForwad(MED_SPEED);
+	}
+	else if(ultrasonicReading < 500 ){ 		// west elbald
+		DCMotor_voidForwad(HIGH_SPEED);
+	}
+	else if(ultrasonicReading < 1000 ){ 	// 3ala elba7r
+		DCMotor_voidForwad(HIGH_SPEED);
+	}
+	else if(ultrasonicReading < 2000 ){ 	// cairo alex desert road
+		DCMotor_voidForwad(MAX_SPEED);
+	}
+}

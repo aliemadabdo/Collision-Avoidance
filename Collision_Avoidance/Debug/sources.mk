@@ -20,13 +20,13 @@ C_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
+.metadata/.plugins/org.eclipse.cdt.make.core \
 HAL/DCMotor \
 HAL/LCD \
-MCAL/ADC \
+HAL/UltraSonic \
+LIB/RTOS \
 MCAL/DIO \
 MCAL/ICU \
-MCAL/INT \
 MCAL/TIMER0 \
-MCAL/TIMER2 \
 . \
 

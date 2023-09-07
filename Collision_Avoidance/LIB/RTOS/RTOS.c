@@ -9,8 +9,11 @@
 
 
 /* DEPENECIES BEGIN */
-#include "RTOS.h"
 #include <string.h>
+#include <avr/io.h>
+#include <avr/interrupt.h>
+#include "TIM2.h"
+#include "RTOS.h"
 /* DEPENECIES END */
 
 /* PV BEGIN */
@@ -19,9 +22,21 @@ u8 RTOS_tasks_array_index = 0;
 char RTOS_running_task[] = "NULL";
 /* PV END */
 
+void RTOS_voidInit(u8 Copy_u8Prescaler, u8 Copy_u8CmpMatVal){
+	sei(); //set global intr
+	TIM2_voidInit();
+	TIM2_voidSetCmpValue(Copy_u8CmpMatVal);
+	TIM2_voidCmpCallback(&RTOS_schedule);
+
+	/* -> check every task period
+	 * -> set prescaler value based on it */
+	TIM2_voidTimerStart(Copy_u8Prescaler);
+}
+
 /* PFI BEGIN */
 RTOS_error_t RTOS_create_task(char copy_name[RTOS_MAX_TASK_NAME_LEN], u8 copy_priority, u8 copy_piriodicty, void (*copy_service_routine_ptr)(void)){
-    strcpy(RTOS_tasks_array[RTOS_tasks_array_index].name, copy_name);
+
+	strcpy(RTOS_tasks_array[RTOS_tasks_array_index].name, copy_name);
     RTOS_tasks_array[RTOS_tasks_array_index].ID = RTOS_tasks_array_index;
     RTOS_tasks_array[RTOS_tasks_array_index].priority = copy_priority;
     RTOS_tasks_array[RTOS_tasks_array_index].pirodicity = copy_piriodicty;

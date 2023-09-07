@@ -15,6 +15,16 @@
 #include "../STD_Types.h"
 /* DEPENECIES END */
 
+/****************** Prescaler ******************************/
+#define TIM0_STOPPED				0
+#define TIM0_NO_PRESCALER			1
+#define TIM0_PRESCALER_8			2
+#define TIM0_PRESCALER_64			3
+#define TIM0_PRESCALER_256			4
+#define TIM0_PRESCALER_1024			5
+#define TIM0_EXT_FALLING			6
+#define TIM0_EXT_RISINGING			7
+
 #define RTOS_TICK_TIME 100
 #define RTOS_MAX_NUMBER_OF_TASKS 5
 #define RTOS_MAX_TASK_NAME_LEN 30
@@ -33,6 +43,7 @@ typedef struct {
     void (*service_routine_ptr) (void);
 } RTOS_Task;
 
+void RTOS_voidInit(u8 copy_u8Prescaler, u8 copy_u8CmpMatVal);
 RTOS_error_t RTOS_create_task(char copy_name[], u8 copy_priority, u8 copy_piriodicty, void (*copy_service_routine_ptr)(void));
 void RTOS_schedule(void);
 void RTOS_bubble_sort_task(u8 copy_start_index);

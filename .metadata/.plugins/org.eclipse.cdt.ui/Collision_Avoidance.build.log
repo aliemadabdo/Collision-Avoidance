@@ -1,17 +1,36 @@
-21:57:08 **** Incremental Build of configuration Debug for project Collision_Avoidance ****
+16:18:25 **** Incremental Build of configuration Debug for project Collision_Avoidance ****
 make all 
-Building file: ../main.c
+Building file: ../MCAL/TIMER0/TIM0.c
 Invoking: AVR Compiler
-avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
-In file included from ../main.c:7:
-d:/iti_es_basics/softwares/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
-In file included from ../main.c:8:
-../HAL/DCMotor/DCMotor.h:20: error: expected ')' before 'copy_u8Speed'
-../HAL/DCMotor/DCMotor.h:23: error: expected ')' before 'copy_u8Speed'
-../main.c: In function 'main':
-../main.c:19: warning: implicit declaration of function 'DCMotor_voidForward'
-../main.c:34: warning: implicit declaration of function 'DCMotor_voidBackward'
-make: *** [main.o] Error 1
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"MCAL/TIMER0/TIM0.d" -MT"MCAL/TIMER0/TIM0.o" -c -o "MCAL/TIMER0/TIM0.o" "../MCAL/TIMER0/TIM0.c"
+../MCAL/TIMER0/TIM0.c:185:1: warning: multi-line comment
+Finished building: ../MCAL/TIMER0/TIM0.c
+ 
+Building file: ../MCAL/ICU/ICU.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"MCAL/ICU/ICU.d" -MT"MCAL/ICU/ICU.o" -c -o "MCAL/ICU/ICU.o" "../MCAL/ICU/ICU.c"
+Finished building: ../MCAL/ICU/ICU.c
+ 
+Building file: ../MCAL/DIO/DIO.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"MCAL/DIO/DIO.d" -MT"MCAL/DIO/DIO.o" -c -o "MCAL/DIO/DIO.o" "../MCAL/DIO/DIO.c"
+../MCAL/DIO/DIO.c: In function 'DIO_u8GetPinValue':
+../MCAL/DIO/DIO.c:92: warning: control reaches end of non-void function
+Finished building: ../MCAL/DIO/DIO.c
+ 
+Building file: ../LIB/RTOS/RTOS.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"LIB/RTOS/RTOS.d" -MT"LIB/RTOS/RTOS.o" -c -o "LIB/RTOS/RTOS.o" "../LIB/RTOS/RTOS.c"
+In file included from ../LIB/RTOS/RTOS.c:15:
+../LIB/RTOS/TIM2.h:15: error: expected ')' before 'Copy_u8Prescaler'
+../LIB/RTOS/TIM2.h:16: error: expected ')' before 'Copy_u8CmpMatVal'
+../LIB/RTOS/RTOS.c: In function 'RTOS_voidInit':
+../LIB/RTOS/RTOS.c:28: warning: implicit declaration of function 'TIM2_voidSetCmpValue'
+../LIB/RTOS/RTOS.c:33: warning: implicit declaration of function 'TIM2_voidTimerStart'
+../LIB/RTOS/RTOS.c: In function 'RTOS_set_priority':
+../LIB/RTOS/RTOS.c:85: warning: passing argument 1 of 'strcpy' makes pointer from integer without a cast
+../LIB/RTOS/RTOS.c:85: warning: passing argument 2 of 'strcpy' makes pointer from integer without a cast
+make: *** [LIB/RTOS/RTOS.o] Error 1
 
-21:57:08 Build Finished (took 253ms)
+16:18:25 Build Finished (took 540ms)
 
