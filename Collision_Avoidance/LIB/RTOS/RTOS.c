@@ -20,8 +20,8 @@ char RTOS_running_task[] = "NULL";
 /* PV END */
 
 /* PFI BEGIN */
-RTOS_error_t RTOS_create_task(char copy_name[], u8 copy_priority, u8 copy_piriodicty, void (*copy_service_routine_ptr)(void)){
-    RTOS_tasks_array[RTOS_tasks_array_index].name = copy_name;
+RTOS_error_t RTOS_create_task(char copy_name[RTOS_MAX_TASK_NAME_LEN], u8 copy_priority, u8 copy_piriodicty, void (*copy_service_routine_ptr)(void)){
+    strcpy(RTOS_tasks_array[RTOS_tasks_array_index].name, copy_name);
     RTOS_tasks_array[RTOS_tasks_array_index].ID = RTOS_tasks_array_index;
     RTOS_tasks_array[RTOS_tasks_array_index].priority = copy_priority;
     RTOS_tasks_array[RTOS_tasks_array_index].pirodicity = copy_piriodicty;
@@ -36,7 +36,7 @@ RTOS_error_t RTOS_create_task(char copy_name[], u8 copy_priority, u8 copy_piriod
 void RTOS_bubble_sort_task(u8 copy_start_index){
     RTOS_Task temp_task;
     for(int index=copy_start_index; index<RTOS_MAX_NUMBER_OF_TASKS; index++){
-        if(RTOS_tasks_array[index].prority > RTOS_tasks_array[copy_start_index].prority){
+        if(RTOS_tasks_array[index].priority < RTOS_tasks_array[copy_start_index].priority){
             // swap to get the higher priority task at the start of the task array 
             temp_task = RTOS_tasks_array[copy_start_index];
             RTOS_tasks_array[copy_start_index] = RTOS_tasks_array[index];
@@ -67,7 +67,7 @@ void RTOS_set_priority(char copy_name[], u8 copy_prioirty){
     // serach for the name in the tasks array and set the priopirty to the given value
     for(int index=0; index<RTOS_tasks_array_index; index++){
         if(!strcmp(RTOS_tasks_array[index].name, copy_name)){
-            strcpy(RTOS_tasks_array[index].prority,copy_prioirty);
+            strcpy(RTOS_tasks_array[index].priority,copy_prioirty);
             break; 
         }
     }
