@@ -11,10 +11,10 @@
 
 
 #define ULTRASONIC_TRIG_PORT		DIO_PORTD
-#define ULTRASONIC_TRIG_PIN			DIO_PIN5 // Trigger pin (output)
+#define ULTRASONIC_TRIG_PIN			DIO_PIN5
 #define ULTRASONIC_ECHO_PORT		DIO_PORTD
-#define ULTRASONIC_ECHO_PIN			DIO_PIN6 // Echo pin (input)
-#define ULTRASONIC_SOUND_SPEED		343 // Speed of sound in meters per second
+#define ULTRASONIC_ECHO_PIN			DIO_PIN6
+
 
 void ULTRASONIC_voidInit(void);
 void ULTRASONIC_voidStartTrigger(void);

@@ -13,7 +13,6 @@
 #include <avr/interrupt.h>
 
 #include "../../MCAL/DIO/DIO.h"
-#include "../../MCAL/TIMER0/TIM0.h"
 #include "../../MCAL/ICU/ICU.h"
 #include "Ultrasonic.h"
 
@@ -21,6 +20,25 @@
 
 volatile u16 TravelTime =0;
 
+
+void ULTRASONIC_voidInit(void) {
+    // Configure trigger pin as an output
+	DIO_voidSetPinDirection(ULTRASONIC_TRIG_PORT, ULTRASONIC_TRIG_PIN, DIO_OUTPUT);
+
+    // Configure echo pin as an input
+    DIO_voidSetPinDirection(ULTRASONIC_ECHO_PORT, ULTRASONIC_ECHO_PIN, DIO_INPUT);
+
+    // Set up Timer1 for input capture mode
+	ICU_voidInit();
+    ICU_voidSetCallback(ULTRASONIC_TravelTimeCB);
+}
+
+void ULTRASONIC_voidStartTrigger(void) {
+    // Send a 10us pulse on the trigger pin
+	DIO_voidSetPinValue(ULTRASONIC_TRIG_PORT, ULTRASONIC_TRIG_PIN, DIO_HIGH);
+    _delay_us(10);
+    DIO_voidSetPinValue(ULTRASONIC_TRIG_PORT, ULTRASONIC_TRIG_PIN, DIO_LOW);
+}
 
 void ULTRASONIC_TravelTimeCB (void)
 {
@@ -38,37 +56,26 @@ void ULTRASONIC_TravelTimeCB (void)
         u16 end_time = ICU_u16ReadValue();
         TravelTime = end_time - start_time;
         ICU_voidChangeTrigger(ICU_RISING_EDGE); // Switch back to capture on rising edge
+        capture_count = 0;
+        _delay_ms(10);
     }
 
 
 }
 
 
-void ULTRASONIC_voidInit(void) {
-    // Configure trigger pin as an output
-	DIO_voidSetPinDirection(ULTRASONIC_TRIG_PORT, ULTRASONIC_TRIG_PIN, DIO_OUTPUT);
-
-    // Configure echo pin as an input with pull-up resistor
-    DIO_voidSetPinDirection(ULTRASONIC_ECHO_PORT, ULTRASONIC_ECHO_PIN, DIO_INPUT);
-    DIO_voidSetPinValue(ULTRASONIC_ECHO_PORT, ULTRASONIC_ECHO_PIN, DIO_HIGH);
-
-    // Set up Timer1 for input capture mode
-	ICU_voidInit();
-    ICU_voidSetCallback(ULTRASONIC_TravelTimeCB);
-}
-
-void ULTRASONIC_voidStartTrigger(void) {
-    // Send a 10us pulse on the trigger pin
-	DIO_voidSetPinValue(ULTRASONIC_TRIG_PORT, ULTRASONIC_TRIG_PIN, DIO_HIGH);
-    _delay_us(10);
-    DIO_voidSetPinValue(ULTRASONIC_TRIG_PORT, ULTRASONIC_TRIG_PIN, DIO_LOW);
-}
-
-
-
 
 u32 ULTRASONIC_voidReturnDistanceCm(void)
 {
-	u32 Local_ULTRASONIC_Distance_Cm = (uint32_t)( TravelTime* ULTRASONIC_SOUND_SPEED) / 20000;
+	u32 Local_ULTRASONIC_Distance_Cm =0;
+	if(TravelTime>38000)
+	{
+		Local_ULTRASONIC_Distance_Cm ='O'; // Indicate error in echo
+	}
+	else
+	{
+		Local_ULTRASONIC_Distance_Cm = (u32)(( TravelTime/29)/2);
+	}
+
 	return Local_ULTRASONIC_Distance_Cm;
 }
