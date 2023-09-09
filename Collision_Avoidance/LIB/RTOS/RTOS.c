@@ -1,92 +1,70 @@
 /*
- * File name: RTOS.c
+ * RTOS.c
  *
  *  Created on: Sep 6, 2023
- *      Authors: Ali Emad | Nada Atia | Amr Ramadan
- * 
- * Brief: A light version of RTOS for ATmega32.
+ *      Author: Mega Store
  */
-
-
-/* DEPENECIES BEGIN */
-#include <string.h>
+/* includes */
+#include "../BIT_Math.h"
+#include "../STD_Types.h"
 #include <avr/io.h>
 #include <avr/interrupt.h>
-#include "TIM2.h"
 #include "RTOS.h"
-/* DEPENECIES END */
+#include "TIM2.h"
+/****************************/
 
-/* PV BEGIN */
-RTOS_Task RTOS_tasks_array[RTOS_MAX_NUMBER_OF_TASKS];
-u8 RTOS_tasks_array_index = 0;
-char RTOS_running_task[] = "NULL";
-/* PV END */
+/* Preprocessors */
+#define NUM_OF_TASKS 3
+/****************************/
 
+/* Typedefs */
+typedef struct{
+	// priority will be represented as the order of the task in the array
+	u16 Copy_u16periodicity;
+	void (* pfTaskFunc)(void);
+}Task_t;
+/****************************/
+
+/* Global array of system tasks */
+Task_t RTOS_arrStrTasks[NUM_OF_TASKS];
+/****************************/
+
+/* Private functions */
+static void Scheduler(void);
+/****************************/
+
+/* Public Functions */
 void RTOS_voidInit(u8 Copy_u8Prescaler, u8 Copy_u8CmpMatVal){
 	sei(); //set global intr
 	TIM2_voidInit();
 	TIM2_voidSetCmpValue(Copy_u8CmpMatVal);
-	TIM2_voidCmpCallback(&RTOS_schedule);
+	TIM2_voidCmpCallback(&Scheduler);
 
 	/* -> check every task period
 	 * -> set prescaler value based on it */
 	TIM2_voidTimerStart(Copy_u8Prescaler);
 }
 
-/* PFI BEGIN */
-RTOS_error_t RTOS_create_task(char copy_name[RTOS_MAX_TASK_NAME_LEN], u8 copy_priority, u8 copy_piriodicty, void (*copy_service_routine_ptr)(void)){
+void RTOS_voidCreateTask(u8 Copy_u8Priority, u16 Copy_u8Periodicity, void (*Copy_pfTaskFunc)(void) ){
+	RTOS_arrStrTasks[Copy_u8Priority].Copy_u16periodicity = Copy_u8Periodicity;
+	RTOS_arrStrTasks[Copy_u8Priority].pfTaskFunc 		  = Copy_pfTaskFunc;
 
-	strcpy(RTOS_tasks_array[RTOS_tasks_array_index].name, copy_name);
-    RTOS_tasks_array[RTOS_tasks_array_index].ID = RTOS_tasks_array_index;
-    RTOS_tasks_array[RTOS_tasks_array_index].priority = copy_priority;
-    RTOS_tasks_array[RTOS_tasks_array_index].pirodicity = copy_piriodicty;
-    RTOS_tasks_array[RTOS_tasks_array_index].wait_countdown = copy_piriodicty;
-    RTOS_tasks_array[RTOS_tasks_array_index].service_routine_ptr = copy_service_routine_ptr;
-    
-    RTOS_tasks_array_index ++;
-
-    return(TASK_OK);
 }
+/****************************/
+static void Scheduler(void){
 
-void RTOS_bubble_sort_task(u8 copy_start_index){
-    RTOS_Task temp_task;
-    for(int index=copy_start_index; index<RTOS_MAX_NUMBER_OF_TASKS; index++){
-        if(RTOS_tasks_array[index].priority < RTOS_tasks_array[copy_start_index].priority){
-            // swap to get the higher priority task at the start of the task array 
-            temp_task = RTOS_tasks_array[copy_start_index];
-            RTOS_tasks_array[copy_start_index] = RTOS_tasks_array[index];
-            RTOS_tasks_array[index] = temp_task;
-        }
-    }
+	static u16 Local_u16Ticks = 0;
+	u8 Local_u8counter;
+
+	Local_u16Ticks++;
+	for(Local_u8counter = 0; Local_u8counter < NUM_OF_TASKS; Local_u8counter++ ){
+		if (Local_u16Ticks % RTOS_arrStrTasks[Local_u8counter].Copy_u16periodicity == 0){
+				RTOS_arrStrTasks[Local_u8counter].pfTaskFunc();
+		}
+		else{
+			/*do nothing*/
+		}
+	}
 }
 
 
-void RTOS_schedule(void){
-
-    for(int index=0; index<RTOS_tasks_array_index; index++){
-            if(RTOS_tasks_array[index].wait_countdown <= 0){ // <<---
-                // task ready to run
-                RTOS_tasks_array[index].wait_countdown = RTOS_tasks_array[index].pirodicity;
-                strcpy(RTOS_running_task, RTOS_tasks_array[index].name);
-                RTOS_tasks_array[index].service_routine_ptr();
-            }
-            else{
-                // task should wait for upcoming ticks <<<-----
-                RTOS_tasks_array[index].wait_countdown--;
-            }
-
-            // bubble sort the at the current index (highest priority on the left)
-            RTOS_bubble_sort_task(index); 
-    }
-}
-
-void RTOS_set_priority(char copy_name[], u8 copy_prioirty){
-    // serach for the name in the tasks array and set the priopirty to the given value
-    for(int index=0; index<RTOS_tasks_array_index; index++){
-        if(!strcmp(RTOS_tasks_array[index].name, copy_name)){
-            strcpy(RTOS_tasks_array[index].priority,copy_prioirty);
-            break; 
-        }
-    }
-}
-/* PFI END */

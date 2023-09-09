@@ -24,9 +24,6 @@ void DCMotor_voidInit(){
 	/* Clear OCR0 */
 	OCR0 = 0x00;
 
-	/* Set OCR0 (Pin PB3) as output */
-	DDRB |= 0b00001000;
-
 	/* Set Timer0 in Fast PWM mode*/
 	//TIM0_voidInit(); and change mode in the TIM0.h file OR:
 	SET_BIT(TCCR0, WGM00); //WGM : Wave generation mode

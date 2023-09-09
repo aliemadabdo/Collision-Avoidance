@@ -82,13 +82,13 @@ u8 DIO_u8GetPinValue(u8 Copy_u8Port, u8 Copy_u8Pin){		// PINA,B,C,D
 			case DIO_PORTB :	return GET_BIT(PINB, Copy_u8Pin);
 			case DIO_PORTC :	return GET_BIT(PINC, Copy_u8Pin);
 			case DIO_PORTD :	return GET_BIT(PIND, Copy_u8Pin);
-			default		   :	return 0xff;/* as a wrong entry */
+			default		   :	return 0xff;/* as a wrong entry (not valid port)*/
 		}		
 	}
 	else{
-		/* do nothing */
+		/* not a valid pin */
+		return 0xff;
 	}
-	
 }
 
 

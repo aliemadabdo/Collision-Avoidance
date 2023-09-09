@@ -18,7 +18,7 @@
 
 
 
-volatile u16 TravelTime =0;
+volatile u16 TravelTime = 0;
 
 
 void ULTRASONIC_voidInit(void) {
@@ -36,7 +36,7 @@ void ULTRASONIC_voidInit(void) {
 void ULTRASONIC_voidStartTrigger(void) {
     // Send a 10us pulse on the trigger pin
 	DIO_voidSetPinValue(ULTRASONIC_TRIG_PORT, ULTRASONIC_TRIG_PIN, DIO_HIGH);
-    _delay_us(10);
+    _delay_us(15);
     DIO_voidSetPinValue(ULTRASONIC_TRIG_PORT, ULTRASONIC_TRIG_PIN, DIO_LOW);
 }
 

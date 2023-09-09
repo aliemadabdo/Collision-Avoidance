@@ -1,0 +1,222 @@
+/*
+ * main.c
+ *
+ *  Created on: Sep 6, 2023
+ *      Author: Ali Emad | Nada Atia | Amr Ramadan
+ */
+
+/* AVR libraries */
+#include <util/delay.h>
+#include <avr/io.h>
+#include <stdbool.h>
+/* PreImplemented Drivers */
+#include "LIB/STD_Types.h"
+#include "LIB/BIT_Math.h"
+#include "HAL/LCD/LCD.h"
+#include "MCAL/DIO/DIO.h"
+
+/* Implemented Drivers */
+#include "HAL/DCMotor/DCMotor.h"
+#include "HAL/Ultrasonic/Ultrasonic.h"
+#include "LIB/RTOS/RTOS.h"
+
+#define DEBUG true
+
+#if !DEBUG
+
+volatile u32 distance_cm = 0;
+volatile u32 speed = 0;
+
+enum directions {
+	FORWARD, BACKWARD, ROT_RIGHT, ROT_LEFT, STOP
+}direction;
+
+void Task_Ultrasonic (void);
+void Task_Motors (void);
+void Task_LCD (void);
+
+#endif
+
+/******* TEASTING **********/
+
+#if DEBUG
+void L0(void);
+void L1(void);
+void L2(void);
+#endif
+
+int main(void){
+
+	/******************** INITS***************/
+//	RTOS_voidInit(TIM0_PRESCALER_8, 124);
+#if !DEBUG
+	LCD_voidInit();
+	ULTRASONIC_voidInit();
+	DCMotor_voidInit();
+#endif
+
+	/****************DEBUGGING****************/
+#if DEBUG
+	//	DDRA |= 0b00000111;
+	DIO_voidSetPinDirection(PORTA, DIO_PIN0, DIO_OUTPUT);
+	DIO_voidSetPinDirection(PORTA, DIO_PIN1, DIO_OUTPUT);
+	DIO_voidSetPinDirection(PORTA, DIO_PIN2, DIO_OUTPUT);
+
+//	RTOS_create_task(
+//			"LED_FAST",
+//			0,                   //PRIORITY
+//			1000,				     //PIRODICITY
+//			L0);
+//
+//	RTOS_create_task(
+//			"LED_MED",
+//			1,                   //PRIORITY
+//			2000,                 //PIRODICITY
+//			L1);
+//
+//	RTOS_create_task(
+//			"LED_SLOW",
+//			2,                  //PRIORITY
+//			5000,                //PIRODICITY
+//			L2);
+#endif
+
+#if !DEBUG
+
+	/******************* TASK CREATION ******************/
+	RTOS_create_task(
+			"ULTRASONIC",
+			0, // --> HIGHEST PRIORITY //PRIORITY
+			60,				     //PIRODICITY
+			&Task_Ultrasonic);
+
+	RTOS_create_task(
+			"MOTORS",
+			1,                   //PRIORITY
+			200,                 //PIRODICITY
+			&Task_Motors);
+
+	RTOS_create_task(
+			"LCD",
+			2,                  //PRIORITY
+			500,                //PIRODICITY
+			&Task_LCD);
+#endif
+
+	while(1){ //HALT
+		L0();
+		_delay_ms(1000);
+		L1();
+		_delay_ms(1000);
+		L2();
+		_delay_ms(1000);
+	}
+	return 0;
+}
+
+
+#if !DEBUG
+void Task_Ultrasonic (void)
+{   /*FIX: delet local variable distance_cm*/
+	ULTRASONIC_voidStartTrigger();
+
+	distance_cm =ULTRASONIC_voidReturnDistanceCm();
+}
+
+void Task_Motors(void){
+	if(distance_cm < 1){ 				//Deadlock
+
+		DCMotor_voidBackward(LOW_SPEED);
+		direction = BACKWARD;  speed = LOW_SPEED;
+		_delay_ms(100);
+		DCMotor_voidRotRight();
+		direction = ROT_RIGHT;  speed = MED_SPEED;
+		_delay_ms(100);
+		DCMotor_voidForward(LOW_SPEED);
+		direction = FORWARD;  speed = LOW_SPEED;
+	}
+	else if(distance_cm < 10 ){ 		//About to crash!!
+
+		DCMotor_voidStop();
+		direction = STOP;  speed = 0;
+		_delay_ms(100);
+		DCMotor_voidRotRight();
+		direction = ROT_RIGHT;  speed = MED_SPEED;
+		_delay_ms(100);
+		DCMotor_voidForward(LOW_SPEED);
+		direction = FORWARD;  speed = LOW_SPEED;
+
+	}
+	else if(distance_cm < 50 ){ 		// traffic
+		DCMotor_voidForward(LOW_SPEED);
+		direction = FORWARD;  speed = LOW_SPEED;
+	}
+
+	else if(distance_cm < 100 ){ 		// less traffic
+		DCMotor_voidForward(MED_SPEED);
+		direction = FORWARD;  speed = MED_SPEED;
+	}
+	else if(distance_cm < 250 ){ 		// 3la elba7r
+		DCMotor_voidForward(HIGH_SPEED);
+		direction = FORWARD;  speed = HIGH_SPEED;
+	}
+	else if(distance_cm < 500 ){ 	// cairo alex desert road
+		DCMotor_voidForward(MAX_SPEED);
+		direction = FORWARD;  speed = MAX_SPEED;
+
+	}
+}
+
+void Task_LCD (void)
+{
+	LCD_voidSendCommand(CLEAR);
+
+	if (distance_cm == 'O')
+	{
+		LCD_voidSetLocation(LCD_LINE1,0);
+		LCD_voidSendString("FORWARD:");
+		LCD_voidSendNumber(speed);
+
+		LCD_voidSetLocation(LCD_LINE2,0);
+		LCD_voidSendString("out of range:");
+	}
+	else
+	{
+		LCD_voidSetLocation(LCD_LINE1,0);
+
+		switch(direction){
+		case FORWARD:
+			LCD_voidSendString("FORWARD:"); break;
+		case BACKWARD:
+			LCD_voidSendString("BACKWARD:"); break;
+		case ROT_RIGHT:
+			LCD_voidSendString("ROT_RIGHT:"); break;
+		case ROT_LEFT:
+			LCD_voidSendString("ROT_LEFT:"); break;
+		default:
+			LCD_voidSendString("STOP:");
+		}
+		LCD_voidSendNumber(speed);
+
+		LCD_voidSetLocation(LCD_LINE2,0);
+		LCD_voidSendString("distance:");
+		LCD_voidSendNumber(distance_cm);
+	}
+	//        _delay_ms(1000);
+}
+#endif
+
+#if DEBUG
+void L0(void){
+	TGL_BIT(PORTA, 0);
+}
+
+void L1(void){
+	TGL_BIT(PORTA, 1);
+}
+void L2(void){
+	TGL_BIT(PORTA, 2);
+}
+#endif
+
+

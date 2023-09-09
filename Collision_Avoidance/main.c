@@ -13,25 +13,31 @@
 #include "LIB/STD_Types.h"
 #include "LIB/BIT_Math.h"
 #include "HAL/LCD/LCD.h"
+#include "MCAL/DIO/DIO.h"
 
 /* Implemented Drivers */
 #include "HAL/DCMotor/DCMotor.h"
 #include "HAL/Ultrasonic/Ultrasonic.h"
 #include "LIB/RTOS/RTOS.h"
 
+#define DEBUG false
+
+#if !DEBUG
+
 volatile u32 distance_cm = 0;
 volatile u32 speed = 0;
 
-enum directions {
-	FORWARD, BACKWARD, ROT_RIGHT, ROT_LEFT, STOP
+enum {
+	FORWARD, BACKWARD, ROT_RIGHT, ROT_LEFT, STOP, CRASHED
 }direction;
 
 void Task_Ultrasonic (void);
 void Task_Motors (void);
 void Task_LCD (void);
 
+#endif
+
 /******* TEASTING **********/
-#define DEBUG false
 
 #if DEBUG
 void L0(void);
@@ -39,119 +45,122 @@ void L1(void);
 void L2(void);
 #endif
 
-
-
 int main(void){
 
 	/******************** INITS***************/
-	RTOS_voidInit(TIM0_PRESCALER_8, 124);
+	RTOS_voidInit(TIM0_PRESCALER_64, 124);
+#if !DEBUG
 	LCD_voidInit();
 	ULTRASONIC_voidInit();
 	DCMotor_voidInit();
+#endif
 
 	/****************DEBUGGING****************/
 #if DEBUG
 	DDRA |= 0b00000111;
-	RTOS_create_task(
-			"LED_FAST",
-			0,                   //PRIORITY
-			60,				     //PIRODICITY
-			&L0);
 
-	RTOS_create_task(
-			"LED_MED",
-			1,                   //PRIORITY
-			200,                 //PIRODICITY
-			&L1);
-
-	RTOS_create_task(
-			"LED_SLOW",
-			2,                  //PRIORITY
-			500,                //PIRODICITY
-			&L2);
+	RTOS_voidCreateTask(0 , 1000, L0);
+	RTOS_voidCreateTask(1 , 3000, L1);
+	RTOS_voidCreateTask(2 , 6000, L2);
 #endif
 
+#if !DEBUG
+
 	/******************* TASK CREATION ******************/
-	RTOS_create_task(
-			"ULTRASONIC",
-			0, // --> HIGHEST PRIORITY //PRIORITY
-			60,				     //PIRODICITY
-			&Task_Ultrasonic);
+	RTOS_voidCreateTask(0 , 60,  Task_Ultrasonic);
+	RTOS_voidCreateTask(1 , 200, Task_Motors);
+	RTOS_voidCreateTask(2 , 500, Task_LCD);
 
-	RTOS_create_task(
-			"MOTORS",
-			1,                   //PRIORITY
-			200,                 //PIRODICITY
-			&Task_Motors);
-
-	RTOS_create_task(
-			"LCD",
-			2,                  //PRIORITY
-			500,                //PIRODICITY
-			&Task_LCD);
+	//	RTOS_create_task(
+	//			"ULTRASONIC",
+	//			0, // --> HIGHEST PRIORITY //PRIORITY
+	//			60,				     //PIRODICITY
+	//			&Task_Ultrasonic);
+	//
+	//	RTOS_create_task(
+	//			"MOTORS",
+	//			1,                   //PRIORITY
+	//			200,                 //PIRODICITY
+	//			&Task_Motors);
+	//
+	//	RTOS_create_task(
+	//			"LCD",
+	//			2,                  //PRIORITY
+	//			500,                //PIRODICITY
+	//			&Task_LCD);
+#endif
 
 	while(1); //HALT
 
 	return 0;
 }
 
+
+#if !DEBUG
 void Task_Ultrasonic (void)
-{
-	u32 distance_cm=0;
+{   /*FIX: delet local variable distance_cm*/
 	ULTRASONIC_voidStartTrigger();
 
-	distance_cm =ULTRASONIC_voidReturnDistanceCm();
+	distance_cm = ULTRASONIC_voidReturnDistanceCm();
 }
 
 void Task_Motors(void){
-	if(distance_cm < 1){ 				//Deadlock
 
-		DCMotor_voidBackward(LOW_SPEED);
-		direction = BACKWARD;  speed = LOW_SPEED;
-		_delay_ms(100);
-		DCMotor_voidRotRight();
-		direction = ROT_RIGHT;  speed = MED_SPEED;
-		_delay_ms(100);
-		DCMotor_voidForward(LOW_SPEED);
-		direction = FORWARD;  speed = LOW_SPEED;
+	if(distance_cm == 0){
+		direction = CRASHED;
 	}
-	else if(distance_cm < 10 ){ 		//About to crash!!
+	else{
 
-		DCMotor_voidStop();
-		direction = STOP;  speed = 0;
-		_delay_ms(100);
-		DCMotor_voidRotRight();
-		direction = ROT_RIGHT;  speed = MED_SPEED;
-		_delay_ms(100);
-		DCMotor_voidForward(LOW_SPEED);
-		direction = FORWARD;  speed = LOW_SPEED;
+		if(distance_cm < 1){ 				//Deadlock
 
-	}
-	else if(distance_cm < 50 ){ 		// traffic
-		DCMotor_voidForward(LOW_SPEED);
-		direction = FORWARD;  speed = LOW_SPEED;
-	}
+			DCMotor_voidBackward(LOW_SPEED);
+			direction = BACKWARD;  speed = LOW_SPEED;
+			_delay_ms(100);
+			DCMotor_voidRotRight();
+			direction = ROT_RIGHT;  speed = MED_SPEED;
+			_delay_ms(100);
+			DCMotor_voidForward(LOW_SPEED);
+			direction = FORWARD;  speed = LOW_SPEED;
+		}
+		else if(distance_cm < 10 ){ 		//About to crash!!
 
-	else if(distance_cm < 100 ){ 		// less traffic
-		DCMotor_voidForward(MED_SPEED);
-		direction = FORWARD;  speed = MED_SPEED;
-	}
-	else if(distance_cm < 250 ){ 		// 3la elba7r
-		DCMotor_voidForward(HIGH_SPEED);
-		direction = FORWARD;  speed = HIGH_SPEED;
-	}
-	else if(distance_cm < 500 ){ 	// cairo alex desert road
-		DCMotor_voidForward(MAX_SPEED);
-		direction = FORWARD;  speed = MAX_SPEED;
+			DCMotor_voidStop();
+			direction = STOP;  speed = 0;
+			_delay_ms(100);
+			DCMotor_voidRotRight();
+			direction = ROT_RIGHT;  speed = MED_SPEED;
+			_delay_ms(100);
+			DCMotor_voidForward(LOW_SPEED);
+			direction = FORWARD;  speed = LOW_SPEED;
 
+		}
+		else if(distance_cm < 50 ){ 		// traffic
+			DCMotor_voidForward(LOW_SPEED);
+			direction = FORWARD;  speed = LOW_SPEED;
+		}
+
+		else if(distance_cm < 100 ){ 		// less traffic
+			DCMotor_voidForward(MED_SPEED);
+			direction = FORWARD;  speed = MED_SPEED;
+		}
+		else if(distance_cm < 250 ){ 		// 3la elba7r
+			DCMotor_voidForward(HIGH_SPEED);
+			direction = FORWARD;  speed = HIGH_SPEED;
+		}
+		else if(distance_cm < 500 ){ 	// cairo alex desert road
+			DCMotor_voidForward(MAX_SPEED);
+			direction = FORWARD;  speed = MAX_SPEED;
+
+		}
 	}
 }
+
 
 void Task_LCD (void)
 {
 	LCD_voidSendCommand(CLEAR);
 
-	if (distance_cm == '0')
+	if (distance_cm == 'O')
 	{
 		LCD_voidSetLocation(LCD_LINE1,0);
 		LCD_voidSendString("FORWARD:");
@@ -166,24 +175,27 @@ void Task_LCD (void)
 
 		switch(direction){
 		case FORWARD:
-			LCD_voidSendString("FORWARD:"); break;
+			LCD_voidSendString(" FORWARD:"); break;
 		case BACKWARD:
-			LCD_voidSendString("BACKWARD:"); break;
+			LCD_voidSendString(" BACKWARD:"); break;
 		case ROT_RIGHT:
-			LCD_voidSendString("ROT_RIGHT:"); break;
+			LCD_voidSendString(" ROT_RIGHT:"); break;
 		case ROT_LEFT:
-			LCD_voidSendString("ROT_LEFT:"); break;
+			LCD_voidSendString(" ROT_LEFT:"); break;
+		case CRASHED:
+			LCD_voidSendString(" CRASHED!!!"); break;
 		default:
-			LCD_voidSendString("STOP:");
+			LCD_voidSendString(" STOP:");
 		}
 		LCD_voidSendNumber(speed);
 
 		LCD_voidSetLocation(LCD_LINE2,0);
-		LCD_voidSendString("distance:");
+		LCD_voidSendString(" distance:");
 		LCD_voidSendNumber(distance_cm);
 	}
 	//        _delay_ms(1000);
 }
+#endif
 
 #if DEBUG
 void L0(void){

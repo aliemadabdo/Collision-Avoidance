@@ -182,8 +182,8 @@ ISR(TIMER0_COMP_vect){
 
 
 //#else
-//#  define ISR(vector, ...)            \
-//    void vector (void) __attribute__ ((signal,__INTR_ATTRS)) __VA_ARGS__; \
+//#  define ISR(vector, ...)            
+//    void vector (void) __attribute__ ((signal,__INTR_ATTRS)) __VA_ARGS__; 
 //    void vector (void)
 //#define TIMER0_COMP_vect		_VECTOR(10)
 //#define _VECTOR(N) __vector_ ## N
